@@ -6,7 +6,7 @@ const Works = () => {
         <section id="works" className="works-section py-20 lg:py-32">
             <div className="container mx-auto px-5">
                 <div className="section-header mb-16">
-                    <h2 className="text-3xl lg:text-5xl font-bold text-white mb-6">
+                    <h2 className="text-3xl lg:text-5xl font-bold text-ash-black mb-6">
                         Our <span className="text-gradient">Works</span>
                     </h2>
                     <p className="text-dark-100 max-w-2xl text-lg">
@@ -22,7 +22,7 @@ const Works = () => {
                         <Link
                             key={project.id}
                             to={`/works/${project.slug}`}
-                            className="work-card group min-w-[280px] lg:min-w-0 flex-shrink-0 rounded-2xl overflow-hidden bg-dark-200/30 hover:bg-dark-200/50 transition-all duration-300"
+                            className="work-card group min-w-[280px] lg:min-w-0 flex-shrink-0 rounded-2xl overflow-hidden bg-white hover:bg-slate-50 transition-all duration-300 shadow-sm"
                         >
                             <div className="image-wrapper overflow-hidden">
                                 <img
@@ -32,7 +32,7 @@ const Works = () => {
                                 />
                             </div>
                             <div className="p-5">
-                                <h4 className="text-lg font-bold text-white uppercase group-hover:text-primary transition-colors">
+                                <h4 className="text-lg font-bold text-ash-black uppercase group-hover:text-primary transition-colors">
                                     {project.title}
                                 </h4>
                                 {project.subtitle && (
@@ -46,7 +46,7 @@ const Works = () => {
                 <div className="text-center mt-12">
                     <Link
                         to="/works"
-                        className="magnetic-btn inline-block bg-transparent border-2 border-primary text-primary py-4 px-10 rounded-full font-semibold hover:bg-primary hover:text-white transition-all duration-300"
+                        className="magnetic-btn inline-block btn-gradient-outline py-4 px-10 rounded-full font-semibold"
                     >
                         EXPLORE ALL OUR WORKS
                     </Link>

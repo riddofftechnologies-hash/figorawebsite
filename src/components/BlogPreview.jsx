@@ -6,7 +6,7 @@ const BlogPreview = () => {
         <section id="blog-preview" className="blog-preview-section py-20">
             <div className="container mx-auto px-5">
                 <div className="section-header mb-16">
-                    <h2 className="text-3xl lg:text-5xl font-bold text-white mb-6">
+                    <h2 className="text-3xl lg:text-5xl font-bold text-ash-black mb-6">
                         Featured <span className="text-gradient">BLOGS</span>
                     </h2>
                 </div>
@@ -16,7 +16,7 @@ const BlogPreview = () => {
                         <Link
                             key={post.id}
                             to={`/ideas/${post.slug}`}
-                            className="blog-card group block rounded-2xl overflow-hidden bg-dark-200/30 hover:bg-dark-200/50 transition-all duration-300"
+                            className="blog-card group block rounded-2xl overflow-hidden bg-white hover:bg-slate-50 transition-all duration-300 shadow-sm"
                         >
                             <div className="image-wrapper overflow-hidden relative">
                                 <img
@@ -29,7 +29,7 @@ const BlogPreview = () => {
                                 </span>
                             </div>
                             <div className="p-6">
-                                <h4 className="text-lg font-bold text-white uppercase group-hover:text-primary transition-colors line-clamp-2">
+                                <h4 className="text-lg font-bold text-ash-black uppercase group-hover:text-primary transition-colors line-clamp-2">
                                     {post.title}
                                 </h4>
                                 <span className="text-primary font-semibold text-sm mt-4 inline-block group-hover:underline">
@@ -43,7 +43,7 @@ const BlogPreview = () => {
                 <div className="text-center mt-12">
                     <Link
                         to="/ideas"
-                        className="magnetic-btn inline-block bg-transparent border-2 border-white text-white py-4 px-10 rounded-full font-semibold hover:bg-white hover:text-black transition-all duration-300"
+                        className="magnetic-btn inline-block btn-gradient-outline py-4 px-10 rounded-full font-semibold"
                     >
                         EXPLORE ALL BLOGS
                     </Link>

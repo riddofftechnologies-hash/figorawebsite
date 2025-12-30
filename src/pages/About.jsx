@@ -1,8 +1,6 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Testimonials from "../components/Testimonials.jsx";
-import Clients from "../components/Clients.jsx";
 import CallToAction from "../components/CallToAction.jsx";
 import { teamMembers, journeySteps, teamPhilosophy } from "../constants/index.js";
 
@@ -50,14 +48,12 @@ const About = () => {
         <div className="about-page">
             {/* Hero Section */}
             <section ref={heroRef} className="about-hero">
-                <div className="container mx-auto px-5 py-20 lg:py-32">
-                    <h1 className="animate-in text-4xl lg:text-7xl font-bold text-white mb-6">
-                        Bold, Creative, <span className="text-gradient">Human.</span>
+                <div className="container mx-auto px-5 py-12 lg:py-20">
+                    <h1 className="animate-in text-4xl lg:text-7xl font-bold text-ash-black mb-6">
+                        <span className="text-gradient">WHY FIGORA?</span>
                     </h1>
                     <p className="animate-in text-lg lg:text-xl text-dark-100 max-w-3xl">
-                        At Figora, we blend design and purpose to build experiences that resonate.
-                        We're a bunch of curious minds, pixel pushers, word nerds, and strategy
-                        geeks who genuinely love what we do.
+                        From the visionary heart of Thrissur, we are a crew defined by confident action and unwavering aspiration. We don't just follow the pace of this fast-changing world; we anticipate it.
                     </p>
                 </div>
             </section>
@@ -65,7 +61,7 @@ const About = () => {
             {/* Journey Section */}
             <section ref={journeyRef} className="journey-section py-20">
                 <div className="container mx-auto px-5">
-                    <h2 className="text-3xl lg:text-5xl font-bold text-white mb-16 text-center">
+                    <h2 className="text-3xl lg:text-5xl font-bold text-grey mb-3 text-center">
                         Our <span className="text-gradient">JOURNEY</span>
                     </h2>
                     <p className="text-center text-dark-100 mb-16 max-w-2xl mx-auto">
@@ -81,17 +77,17 @@ const About = () => {
                                 }`}
                             >
                                 <div className="flex-1">
-                                    <h3 className="text-2xl lg:text-4xl font-bold text-white mb-4">
+                                    <h3 className="text-2xl lg:text-4xl font-bold text-ash-black mb-4">
                                         {step.title}
                                     </h3>
                                     <p className="text-dark-100 text-lg">{step.description}</p>
                                 </div>
                                 <div className="flex-1">
-                                    <div className="journey-image rounded-2xl overflow-hidden">
+                                    <div className="journey-image rounded-2xl overflow-hidden group">
                                         <img
                                             src={step.image}
                                             alt={step.title}
-                                            className="w-full h-64 lg:h-80 object-cover"
+                                            className="w-full h-64 lg:h-80 object-cover transition-transform duration-500 group-hover:scale-105"
                                         />
                                     </div>
                                 </div>
@@ -102,9 +98,9 @@ const About = () => {
             </section>
 
             {/* Team Philosophy */}
-            <section className="philosophy-section py-20 bg-dark-200/30">
+            <section className="philosophy-section py-8 bg-slate-100/50">
                 <div className="container mx-auto px-5">
-                    <h2 className="text-3xl lg:text-5xl font-bold text-white mb-6 text-center">
+                    <h2 className="text-3xl lg:text-5xl font-bold text-ash-black mb-3 text-center">
                         Our Team <span className="text-gradient">PHILOSOPHY</span>
                     </h2>
                     <p className="text-center text-dark-100 mb-16 max-w-2xl mx-auto">
@@ -116,12 +112,12 @@ const About = () => {
                         {teamPhilosophy.map((item) => (
                             <div
                                 key={item.id}
-                                className="philosophy-card bg-dark-200/50 rounded-2xl p-8 text-center hover:bg-dark-200 transition-all duration-300"
+                                className="philosophy-card bg-white rounded-2xl p-8 text-center hover:bg-slate-50 transition-all duration-300 shadow-sm"
                             >
                                 <div className="icon-wrapper mb-6 flex justify-center">
-                                    <img src={item.icon} alt={item.title} className="w-16 h-16" />
+                                    <img src={item.icon} alt={item.title} className="w-24 h-24 cursor-default" />
                                 </div>
-                                <h3 className="text-xl font-bold text-white mb-3">{item.title}</h3>
+                                <h3 className="text-xl font-bold text-gradient mb-3">{item.title}</h3>
                                 <p className="text-dark-100">{item.description}</p>
                             </div>
                         ))}
@@ -132,7 +128,7 @@ const About = () => {
             {/* Team Section */}
             <section className="team-section py-20">
                 <div className="container mx-auto px-5">
-                    <h2 className="text-3xl lg:text-5xl font-bold text-white mb-16 text-center">
+                    <h2 className="text-3xl lg:text-5xl font-bold text-grey mb-16 text-center">
                         MEET the <span className="text-gradient">Brains, Creatives & Builders</span>
                     </h2>
 
@@ -141,6 +137,7 @@ const About = () => {
                             <div
                                 key={member.id}
                                 className="team-card group relative overflow-hidden rounded-2xl"
+                                
                             >
                                 <img
                                     src={member.image}
@@ -158,9 +155,9 @@ const About = () => {
             </section>
 
             {/* Careers Section */}
-            <section id="careers" className="careers-section py-20 bg-dark-200/30">
+            <section id="careers" className="careers-section py-20 bg-slate-100/50">
                 <div className="container mx-auto px-5 text-center">
-                    <h2 className="text-3xl lg:text-5xl font-bold text-white mb-6">
+                    <h2 className="text-3xl lg:text-5xl font-bold text-ash-black mb-6">
                         Shape Your Future With <span className="text-gradient">FIGORA</span>
                     </h2>
                     <p className="text-dark-100 mb-10 max-w-2xl mx-auto">
@@ -168,15 +165,13 @@ const About = () => {
                     </p>
                     <a
                         href="mailto:careers@figora.com"
-                        className="magnetic-btn inline-block bg-primary text-white py-4 px-10 rounded-full font-semibold hover:bg-white hover:text-black transition-all duration-300"
+                        className="magnetic-btn inline-block btn-gradient py-4 px-10 rounded-full font-semibold"
                     >
                         SHOOT YOUR RESUME
                     </a>
                 </div>
             </section>
 
-            <Testimonials />
-            <Clients />
             <CallToAction />
         </div>
     );

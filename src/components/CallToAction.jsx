@@ -39,22 +39,21 @@ const CallToAction = () => {
 
             <div className="container mx-auto px-5 relative z-10">
                 <div className="cta-content text-center max-w-4xl mx-auto">
-                    <h2 className="animate-cta text-3xl lg:text-6xl font-bold text-white mb-6">
-                        What's Your
+                    <h2 className="animate-cta text-3xl lg:text-6xl font-bold text-ash-black mb-6">
+                        
                         <br />
-                        Brand's <span className="text-gradient">NEXT STEP?</span>
+                        Shouldn't your brand's story be the one <span className="text-gradient">everyone remembers?</span>
                     </h2>
 
                     <p className="animate-cta text-dark-100 text-lg lg:text-xl mb-10 max-w-2xl mx-auto">
-                        Great brands don't just happen, they are built with intent. Let's create
-                        yours.
+                        Memorable stories are expertly crafted, not accidental. Ready to amplify your voice and leave a lasting impression?
                     </p>
 
                     <Link
                         to="/contact"
-                        className="animate-cta magnetic-btn inline-block bg-primary text-white py-4 px-12 rounded-full font-semibold text-lg hover:bg-white hover:text-black transition-all duration-300"
+                        className="animate-cta magnetic-btn inline-block btn-gradient py-4 px-12 rounded-full font-semibold text-lg"
                     >
-                        LET'S GET STARTED
+                        CONNECT WITH US
                     </Link>
                 </div>
 

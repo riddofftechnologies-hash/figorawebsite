@@ -33,15 +33,16 @@ const Testimonials = () => {
         <section id="testimonials" className="testimonials-section py-20 lg:py-32">
             <div className="container mx-auto px-5">
                 <div className="flex justify-between items-center mb-16">
-                    <h2 className="text-3xl lg:text-5xl font-bold text-white">
-                        Our <span className="text-gradient">HAPPY</span>
-                        <br />
-                        Customers
-                    </h2>
-
-                    <p className="hidden lg:block text-dark-100 max-w-md">
-                        Hear what our satisfied clients have to say about us.
-                    </p>
+                    <div>
+                        <h2 className="text-3xl lg:text-5xl font-bold text-ash-black">
+                            What Our <span className="text-gradient">Partners</span>
+                            <br />
+                            Say
+                        </h2>
+                        <p className="text-dark-100 max-w-md mt-2">
+                            Hear what our satisfied clients have to say about us.
+                        </p>
+                    </div>
 
                     <div className="nav-buttons flex gap-4">
                         <button
@@ -91,8 +92,8 @@ const Testimonials = () => {
                                 index === activeIndex ? "active" : "hidden"
                             }`}
                         >
-                            <div className="testimonial-card bg-dark-200/30 rounded-3xl p-8 lg:p-12">
-                                <p className="text-white text-lg lg:text-2xl leading-relaxed mb-8">
+                            <div className="testimonial-card bg-white shadow-sm rounded-3xl p-8 lg:p-12">
+                                <p className="text-ash-black text-lg lg:text-2xl leading-relaxed mb-8">
                                     "{testimonial.quote}"
                                 </p>
 
@@ -103,7 +104,7 @@ const Testimonials = () => {
                                         className="w-16 h-16 rounded-full object-cover"
                                     />
                                     <div>
-                                        <h4 className="text-white font-bold text-lg">
+                                        <h4 className="text-ash-black font-bold text-lg">
                                             {testimonial.name}
                                         </h4>
                                         <p className="text-primary">
@@ -124,7 +125,7 @@ const Testimonials = () => {
                                 className={`dot w-3 h-3 rounded-full transition-all duration-300 ${
                                     index === activeIndex
                                         ? "bg-primary w-8"
-                                        : "bg-dark-200/50 hover:bg-dark-200"
+                                        : "bg-slate-300 hover:bg-slate-400"
                                 }`}
                             />
                         ))}

@@ -1,3 +1,39 @@
+.navbar, .navbar * {
+  font-family: 'Alika Misely', cursive !important;
+}
+/* Apply Alika Misely font to subtexts on Home page */
+.home-page p,
+.home-page .sub,
+.home-page .subtitle,
+.home-page .description,
+.home-page .text-dark-100 {
+  font-family: 'Alika Misely', cursive !important;
+}
+/* Apply Alika Misely font to all headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Alika Misely', cursive !important;
+}
+.services-page, .services-page * {
+  font-family: 'Alika Misely', cursive !important;
+}
+.works-page, .works-page * {
+  font-family: 'Alika Misely', cursive !important;
+}
+.about-page, .about-page * {
+  font-family: 'Alika Misely', cursive !important;
+}
+.blog-page, .blog-page * {
+  font-family: 'Alika Misely', cursive !important;
+}
+@font-face {
+  font-family: "Alika Misely";
+  src: url("/fonts/Alika Misely.ttf") format("truetype");
+  font-display: swap;
+}
+
+.contact-page, .contact-page * {
+  font-family: 'Alika Misely', cursive !important;
+}
 @import "tailwindcss";
 
 @font-face {
@@ -21,16 +57,14 @@
 }
 
 * {
-  scrollbar-color: var(--color-dark-100) var(--color-black);
+  scrollbar-color: #6b7280 #f3f4f6;
 }
 
 :root {
   --gradient-color: linear-gradient(
-    to bottom right,
-    #0894ff 0%,
-    #c959dd 34%,
-    #ff2e54 68%,
-    #ff9004
+    90deg,
+    #8A00C2 0%,
+    #0000AA 100%
   );
 }
 
@@ -39,24 +73,21 @@
   --font-medium: "Medium";
   --font-semibold: "SemiBold";
   --font-bold: "Bold";
-  --color-primary: #0071e3;
-  --color-dark-100: #86868b;
-  --color-dark-200: #2e2e30;
-  --color-light-100: #adb5bd;
+  --color-primary: #8A00C2;
+  --color-primary-dark: #0000AA;
+  --color-dark-100: #4b5563;
+  --color-dark-200: #e5e7eb;
+  --color-light-100: #6b7280;
+  --color-ash-black: #1f2937;
 }
 
-html {
+html, body {
   width: 100vw;
   overflow-x: hidden;
   scroll-behavior: smooth;
-}
-
-body {
-  width: 100vw;
-  overflow-x: hidden;
-  background-color: #000;
-  color: var(--color-dark-100);
-  font-family: var(--font-semibold);
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 25%, #f1f5f9 50%, #e2e8f0 100%);
+  color: var(--color-ash-black);
+  font-family: 'Alika Misely', cursive !important;
 }
 
 @utility flex-center {
@@ -89,7 +120,7 @@ body {
 
 @layer components {
   header {
-    @apply w-screen fixed top-0 left-0 z-50 flex-center bg-black min-h-[7vh];
+    @apply w-screen fixed top-0 left-0 z-50 flex-center bg-white/90 backdrop-blur-md min-h-[7vh] shadow-sm;
 
     nav {
       @apply container mx-auto flex-between px-5 2xl:px-0;
@@ -106,71 +137,114 @@ body {
         @apply flex-center gap-8;
 
         a {
-          @apply hidden md:block text-white opacity-80 font-regular text-sm cursor-pointer hover:opacity-100 transition-all duration-300 ease-in-out;
+          @apply hidden md:block text-ash-black opacity-80 font-regular text-sm cursor-pointer hover:opacity-100 hover:text-primary transition-all duration-300 ease-in-out;
         }
       }
     }
   }
 
   #hero {
-    @apply h-fit lg:h-[80vh] col-center mt-40 lg:mt-20 2xl:mt-[7vh];
+    @apply h-auto lg:h-auto col-center mt-0 pt-[7vh] relative overflow-hidden;
 
-    div {
-      @apply relative z-10 col-center lg:translate-y-16;
+    .hero-media {
+      @apply relative w-full;
+      height: 60vh;
 
-      h1 {
-        @apply font-semibold lg:text-3xl 2xl:text-5xl text-white;
+      video {
+        @apply w-full h-full object-cover;
       }
 
-      img {
-        @apply container mx-auto w-2/3;
+      .hero-mask {
+        @apply absolute inset-0 flex items-start justify-center;
+
+        img {
+          @apply w-full h-full;
+          object-fit: cover;
+          object-position: center top;
+        }
       }
     }
 
-    video {
-      @apply mx-auto lg:translate-y-5 2xl:translate-y-0;
+    .hero-bottom-content {
+      @apply text-center z-10 mt-0 pb-0;
+
+      .hero-tagline {
+        @apply mb-4;
+      }
     }
 
     button {
-      @apply relative z-10 bg-primary text-white py-2 px-6 mt-10 lg:mt-0 mb-5 rounded-full font-semibold text-lg cursor-pointer hover:bg-white hover:text-black transition-all duration-300 ease-in-out;
+      @apply relative z-10 text-white py-3 px-8 mb-4 rounded-full font-semibold text-lg cursor-pointer transition-all duration-300 ease-in-out;
+      background: linear-gradient(90deg, #8A00C2 0%, #0000AA 100%);
+    }
+
+    button:hover {
+      background: linear-gradient(90deg, #0000AA 0%, #8A00C2 100%);
     }
 
     p {
-      @apply lg:h3-semibold base-semibold;
+      @apply lg:h3-semibold base-semibold text-ash-black;
     }
   }
 
+  /* Gradient button class for reuse across site */
+  .btn-gradient {
+    background: linear-gradient(90deg, #8A00C2 0%, #0000AA 100%) !important;
+    color: white !important;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .btn-gradient:hover {
+    background: linear-gradient(90deg, #0000AA 0%, #8A00C2 100%) !important;
+  }
+
+  /* Gradient outline button */
+  .btn-gradient-outline {
+    background: transparent !important;
+    border: 2px solid #8A00C2 !important;
+    color: #1a1a1a !important;
+    -webkit-text-fill-color: #1a1a1a;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .btn-gradient-outline:hover {
+    background: linear-gradient(90deg, #8A00C2 0%, #0000AA 100%) !important;
+    -webkit-text-fill-color: white;
+    color: white !important;
+    border-color: transparent !important;
+  }
+
   #product-viewer {
-    @apply container relative min-h-[93vh] mx-auto px-5 2xl:px-0 mt-40;
+    @apply container relative min-h-[93vh] mx-auto px-5 2xl:px-0 mt-20;
 
     h2 {
-      @apply text-white font-semibold text-3xl lg:text-6xl;
+      @apply text-ash-black font-semibold text-3xl lg:text-6xl;
     }
 
     .controls {
       @apply absolute z-50 bottom-40 lg:bottom-40 2xl:bottom-52 left-1/2 -translate-x-1/2;
 
       .info {
-        @apply text-xs text-white bg-black/20 px-2 py-1 rounded-lg;
+        @apply text-xs text-ash-black bg-white/80 px-2 py-1 rounded-lg shadow-sm;
       }
 
       .color-control {
-        @apply flex-between bg-neutral-800 rounded-full px-6 py-3 gap-4;
+        @apply flex-between bg-white rounded-full px-6 py-3 gap-4 shadow-lg;
 
         div {
           @apply size-7 rounded-full cursor-pointer;
         }
 
         .active {
-          @apply ring-5 size-5 ring-light-100;
+          @apply ring-5 size-5 ring-ash-black;
         }
       }
 
       .size-control {
-        @apply small-medium flex-between bg-neutral-800 rounded-full px-6 py-2.5 gap-2;
+        @apply small-medium flex-between bg-white rounded-full px-6 py-2.5 gap-2 shadow-lg;
 
         div {
-          @apply size-8 rounded-full cursor-pointer bg-white text-black flex-center;
+          @apply size-8 rounded-full cursor-pointer bg-ash-black text-white flex-center;
         }
       }
     }
@@ -181,53 +255,38 @@ body {
   }
 
   #showcase {
-    @apply relative;
-
-    .media {
-      @apply relative lg:overflow-hidden;
-
-      video {
-        @apply w-full object-cover object-center;
-      }
-
-      .mask {
-        @apply absolute h-full top-0 lg:-top-20 xl:top-0;
-
-        img {
-          @apply h-full scale-150 lg:scale-100;
-          transform: matrix(80, 0, 0, 80, 0, 0);
-        }
-
-        @media (max-width: 1024px) {
-          img {
-            transform: matrix(1, 0, 0, 1, 0, 0);
-          }
-        }
-      }
-    }
+    @apply relative min-h-[60vh] flex items-start justify-center pt-20 mt-0 pb-16;
 
     .content {
-      @apply relative z-10 my-5 lg:-mt-40 bg-black font-semibold text-xl text-dark-100 lg:opacity-0;
+      @apply relative z-10 bg-white font-semibold text-xl text-dark-100 w-full;
 
       .wrapper {
-        @apply container mx-auto px-5 pb-20 2xl:px-0 flex flex-col lg:flex-row justify-center gap-20;
+        @apply container mx-auto px-5 2xl:px-0 flex items-center justify-center;
+      }
+
+      .showcase-content {
+        @apply max-w-3xl text-center mx-auto;
       }
 
       h2 {
-        @apply font-semibold text-3xl lg:text-7xl text-white;
+        @apply font-semibold text-4xl lg:text-7xl text-ash-black mb-8 text-center;
       }
 
       h3 {
-        @apply font-semibold text-xl lg:text-5xl text-white;
+        @apply font-semibold text-xl lg:text-5xl text-ash-black text-center;
+      }
+
+      p {
+        @apply text-lg lg:text-xl text-center;
       }
     }
   }
 
   #performance {
-    @apply w-dvw h-full overflow-hidden pt-20 lg:pt-20 flex flex-col items-center relative;
+    @apply w-dvw h-full overflow-hidden pt-16 lg:pt-16 flex flex-col items-center relative;
 
     h2 {
-      @apply font-semibold text-3xl lg:text-6xl text-white max-w-2xl text-center;
+      @apply font-semibold text-3xl lg:text-6xl text-ash-black max-w-2xl text-center;
     }
 
     .wrapper {
@@ -279,7 +338,7 @@ body {
     @apply pt-40 relative;
 
     h2 {
-      @apply text-white font-semibold text-3xl lg:text-7xl text-center max-w-3xl mx-auto;
+      @apply text-ash-black font-semibold text-3xl lg:text-7xl text-center max-w-3xl mx-auto;
     }
 
     #f-canvas {
@@ -299,15 +358,15 @@ body {
     @apply container mx-auto lg:py-40 max-lg:px-5;
 
     h2 {
-      @apply text-white font-semibold text-3xl lg:text-7xl text-center max-w-3xl mx-auto;
+      @apply text-ash-black font-semibold text-3xl lg:text-7xl text-center max-w-3xl mx-auto;
     }
 
     h3 {
-      @apply text-[#F5F5F7] font-semibold text-xl lg:text-3xl text-center mt-10;
+      @apply text-ash-black font-semibold text-xl lg:text-3xl text-center mt-10;
     }
 
     .masonry {
-      @apply grid grid-cols-1 lg:grid-cols-2 gap-5 mt-20 text-[#F5F5F7];
+      @apply grid grid-cols-1 lg:grid-cols-2 gap-5 mt-20 text-ash-black;
 
       .left-column {
         @apply flex flex-col justify-between gap-5 opacity-0 -translate-y-5;
@@ -325,7 +384,7 @@ body {
         }
 
         div:last-of-type {
-          @apply bg-[#1D1D1F] p-10 rounded-3xl flex items-center gap-7;
+          @apply bg-slate-100 p-10 rounded-3xl flex items-center gap-7 shadow-sm;
 
           p {
             @apply font-semibold lg:text-2xl 2xl:text-3xl;
@@ -342,9 +401,10 @@ body {
         .apple-gradient {
           @apply p-10 rounded-3xl flex items-center gap-7 relative;
 
-          background: #1d1d1f;
+          background: #f8fafc;
           background-clip: padding-box; /* !important */
           border: 3px solid transparent; /* !important */
+          box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 
           ::before {
             content: "";
@@ -382,7 +442,7 @@ body {
         }
 
         div:last-of-type {
-          @apply h-full bg-[#1D1D1F] p-10 2xl:pt-32 lg:pt-20 rounded-3xl;
+          @apply h-full bg-slate-100 p-10 2xl:pt-32 lg:pt-20 rounded-3xl shadow-sm;
 
           p {
             @apply font-semibold text-4xl max-w-sm;
@@ -400,13 +460,13 @@ body {
   }
 
   footer {
-    @apply container mx-auto py-7 max-lg:px-5;
+    @apply w-full py-7 max-lg:px-5 bg-white;
 
     .info {
       @apply flex-between;
 
       p {
-        @apply text-sm font-medium;
+        @apply text-sm font-medium text-ash-black;
 
         span {
           @apply text-primary mx-0.5;
@@ -415,11 +475,11 @@ body {
     }
 
     hr {
-      @apply my-7 text-[#424245];
+      @apply my-7 text-slate-300;
     }
 
     .links {
-      @apply flex flex-col lg:flex-row lg:items-center justify-between max-lg:mt-5 gap-5 text-sm;
+      @apply flex flex-col lg:flex-row lg:items-center justify-between max-lg:mt-5 gap-5 text-sm text-dark-100;
 
       ul {
         @apply lg:divide-x flex flex-col lg:flex-row gap-2.5;
@@ -437,7 +497,7 @@ body {
 
   /* Text Gradient Utility */
   .text-gradient {
-    background: linear-gradient(135deg, var(--color-primary) 0%, #c959dd 50%, #ff2e54 100%);
+    background: linear-gradient(90deg, #8A00C2 0%, #0000AA 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -694,12 +754,7 @@ body {
 
   /* Hero Sections for Pages */
   .about-hero, .services-hero, .works-hero, .blog-hero, .contact-hero {
-    @apply min-h-[50vh] flex items-end relative;
-  }
-
-  .about-hero::before, .services-hero::before, .works-hero::before, .blog-hero::before, .contact-hero::before {
-    content: "";
-    @apply absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black pointer-events-none;
+    @apply min-h-[50vh] flex items-end relative bg-white;
   }
 
   /* Scroll animations */

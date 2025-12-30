@@ -41,11 +41,11 @@ const Contact = () => {
     };
 
     return (
-        <div className="contact-page">
+        <div className="contact-page bg-slate-50">
             {/* Hero Section */}
-            <section ref={heroRef} className="contact-hero py-20 lg:py-32">
+            <section ref={heroRef} className="contact-hero py-12 lg:py-20">
                 <div className="container mx-auto px-5">
-                    <h1 className="animate-in text-4xl lg:text-7xl font-bold text-white mb-6">
+                    <h1 className="animate-in text-4xl lg:text-7xl font-bold text-ash-black mb-6">
                         Take the First Step,
                         <br />
                         Let's <span className="text-gradient">TALK!</span>
@@ -62,7 +62,7 @@ const Contact = () => {
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
                         {/* Interactive Form */}
                         <div className="form-wrapper">
-                            <h2 className="text-2xl lg:text-4xl font-bold text-white mb-10">
+                            <h2 className="text-2xl lg:text-4xl font-bold text-ash-black mb-10">
                                 COMPLETE THIS..
                             </h2>
 
@@ -75,7 +75,7 @@ const Contact = () => {
                                         value={formData.name}
                                         onChange={handleChange}
                                         placeholder="Your Name"
-                                        className="w-full bg-transparent border-b-2 border-dark-200 text-white py-3 px-0 focus:outline-none focus:border-primary transition-colors text-xl"
+                                        className="w-full bg-transparent border-b-2 border-slate-300 text-ash-black py-3 px-0 focus:outline-none focus:border-primary transition-colors text-xl"
                                         required
                                     />
                                 </div>
@@ -90,7 +90,7 @@ const Contact = () => {
                                         value={formData.email}
                                         onChange={handleChange}
                                         placeholder="your@email.com"
-                                        className="w-full bg-transparent border-b-2 border-dark-200 text-white py-3 px-0 focus:outline-none focus:border-primary transition-colors text-xl"
+                                        className="w-full bg-transparent border-b-2 border-slate-300 text-ash-black py-3 px-0 focus:outline-none focus:border-primary transition-colors text-xl"
                                         required
                                     />
                                 </div>
@@ -103,17 +103,17 @@ const Contact = () => {
                                         name="service"
                                         value={formData.service}
                                         onChange={handleChange}
-                                        className="w-full bg-transparent border-b-2 border-dark-200 text-white py-3 px-0 focus:outline-none focus:border-primary transition-colors text-xl cursor-pointer"
+                                        className="w-full bg-transparent border-b-2 border-slate-300 text-ash-black py-3 px-0 focus:outline-none focus:border-primary transition-colors text-xl cursor-pointer"
                                         required
                                     >
-                                        <option value="" className="bg-black">
+                                        <option value="" className="bg-white">
                                             Select a Service
                                         </option>
                                         {services.map((service) => (
                                             <option
                                                 key={service.id}
                                                 value={service.slug}
-                                                className="bg-black"
+                                                className="bg-white"
                                             >
                                                 {service.title}
                                             </option>
@@ -131,13 +131,13 @@ const Contact = () => {
                                         onChange={handleChange}
                                         placeholder="Tell us about your project..."
                                         rows="4"
-                                        className="w-full bg-transparent border-b-2 border-dark-200 text-white py-3 px-0 focus:outline-none focus:border-primary transition-colors text-xl resize-none"
+                                        className="w-full bg-transparent border-b-2 border-slate-300 text-ash-black py-3 px-0 focus:outline-none focus:border-primary transition-colors text-xl resize-none"
                                     />
                                 </div>
 
                                 <button
                                     type="submit"
-                                    className="magnetic-btn bg-primary text-white py-4 px-10 rounded-full font-semibold hover:bg-white hover:text-black transition-all duration-300"
+                                    className="magnetic-btn btn-gradient py-4 px-10 rounded-full font-semibold"
                                 >
                                     SEND MESSAGE
                                 </button>
@@ -147,7 +147,7 @@ const Contact = () => {
                         {/* Contact Info */}
                         <div className="contact-info space-y-10">
                             <div className="info-card">
-                                <h3 className="text-xl font-bold text-white mb-3">SEND A MESSAGE</h3>
+                                <h3 className="text-xl font-bold text-ash-black mb-3">SEND A MESSAGE</h3>
                                 <a
                                     href="mailto:hello@figora.com"
                                     className="text-primary text-lg hover:underline"
@@ -157,27 +157,37 @@ const Contact = () => {
                             </div>
 
                             <div className="info-card">
-                                <h3 className="text-xl font-bold text-white mb-3">CALL US</h3>
+                                <h3 className="text-xl font-bold text-ash-black mb-3">CALL US</h3>
                                 <a
                                     href="tel:+971549910555"
                                     className="text-primary text-lg hover:underline"
                                 >
-                                    +971 54 991 0555
+                                    +91 8891182030
                                 </a>
                             </div>
 
                             <div className="info-card">
-                                <h3 className="text-xl font-bold text-white mb-3">VISIT US</h3>
+                                <h3 className="text-xl font-bold text-ash-black mb-3">VISIT US</h3>
                                 <p className="text-dark-100">
                                     Figora Digital Agency
                                     <br />
-                                    Business Bay, Dubai, UAE
+                                    Thrissur, Kerala
                                 </p>
                             </div>
 
                             <div className="info-card">
-                                <h3 className="text-xl font-bold text-white mb-3">LET'S CONNECT!</h3>
+                                <h3 className="text-xl font-bold text-ash-black mb-3">LET'S CONNECT!</h3>
                                 <div className="social-links flex gap-4 mt-4">
+                                                                        <a
+                                                                            href="https://wa.me/"
+                                                                            target="_blank"
+                                                                            rel="noopener noreferrer"
+                                                                            className="social-icon w-12 h-12 rounded-full bg-dark-200/50 flex items-center justify-center hover:bg-primary transition-colors"
+                                                                        >
+                                                                            <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                                                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.031-.967-.273-.099-.472-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.372-.025-.521-.075-.149-.669-1.611-.916-2.206-.242-.579-.487-.5-.669-.51-.173-.008-.372-.01-.571-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.099 3.2 5.077 4.363.71.306 1.263.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.288.173-1.413-.074-.124-.272-.198-.57-.347zm-5.421 7.617h-.001a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.999-3.648-.235-.374A9.86 9.86 0 012.1 12.045c0-5.455 4.436-9.89 9.892-9.89 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.902 6.991c-.003 5.455-4.438 9.89-9.893 9.89zm8.413-18.303A11.815 11.815 0 0011.993 0C5.373 0 0 5.373 0 12.045c0 2.124.555 4.199 1.607 6.032L.057 24l6.084-1.6a11.89 11.89 0 005.91 1.507h.005c6.62 0 11.998-5.373 11.998-12.045a11.89 11.89 0 00-3.509-8.486z"/>
+                                                                            </svg>
+                                                                        </a>
                                     <a
                                         href="https://linkedin.com"
                                         target="_blank"
@@ -214,9 +224,9 @@ const Contact = () => {
             </section>
 
             {/* FAQ Section */}
-            <section className="faq-section py-20 bg-dark-200/30">
+            <section className="faq-section py-20">
                 <div className="container mx-auto px-5">
-                    <h2 className="text-3xl lg:text-5xl font-bold text-white mb-16 text-center">
+                    <h2 className="text-3xl lg:text-5xl font-bold text-ash-black mb-16 text-center">
                         FREQUENTLY <span className="text-gradient">Asked Questions!</span>
                     </h2>
 
@@ -230,7 +240,7 @@ const Contact = () => {
                                     onClick={() => toggleFaq(faq.id)}
                                     className="faq-question w-full flex justify-between items-center p-6 text-left hover:bg-dark-200/30 transition-colors"
                                 >
-                                    <span className="text-white font-semibold text-lg">
+                                    <span className="text-ash-black font-semibold text-lg">
                                         {faq.question}
                                     </span>
                                     <span

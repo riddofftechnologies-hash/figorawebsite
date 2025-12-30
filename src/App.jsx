@@ -7,6 +7,7 @@ import { ScrollTrigger } from "gsap/all";
 // Layout Components
 import NavBar from "./components/NavBar.jsx";
 import Footer from "./components/Footer.jsx";
+import ScrollToTop from "./components/ScrollToTop.jsx";
 
 // Pages
 import Home from "./pages/Home.jsx";
@@ -64,6 +65,7 @@ const App = () => {
                 <Route path="/contact-us" element={<Contact />} />
             </Routes>
             <Footer />
+            <ScrollToTop />
         </main>
     );
 };

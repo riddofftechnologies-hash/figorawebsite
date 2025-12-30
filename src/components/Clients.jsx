@@ -21,13 +21,13 @@ const Clients = () => {
     return (
         <section id="clients" className="clients-section py-20">
             <div className="container mx-auto px-5 mb-10">
-                <h2 className="text-3xl lg:text-5xl font-bold text-white text-center">
+                <h2 className="text-3xl lg:text-5xl font-bold text-ash-black text-center">
                     Our <span className="text-gradient">CLIENTS</span>
                 </h2>
             </div>
 
             <div ref={marqueeRef} className="clients-marquee overflow-hidden py-10">
-                <div className="clients-track flex gap-16 items-center">
+                <div className="clients-track flex gap-6 items-center">
                     {[...clients, ...clients].map((client, index) => (
                         <a
                             key={index}
@@ -37,9 +37,9 @@ const Clients = () => {
                             className="client-logo flex-shrink-0 grayscale hover:grayscale-0 transition-all duration-300 opacity-60 hover:opacity-100"
                         >
                             <img
-                                src={client.logo}
+                                src={`/${(index % 6) + 1}.png`}
                                 alt={client.name}
-                                className="h-12 lg:h-16 w-auto object-contain"
+                                className="h-20 lg:h-28 w-auto object-contain"
                             />
                         </a>
                     ))}

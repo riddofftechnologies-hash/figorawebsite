@@ -65,8 +65,8 @@ const Performance = () => {
     );
 
     return (
-        <section id="performance" ref={sectionRef}>
-            <h2>Next-level graphics performance. Game on.</h2>
+        <section id="performance" ref={sectionRef} style={{ fontFamily: "'Alika Misely', cursive" }}>
+            <h2 style={{ fontFamily: "'Alika Misely', cursive" }}>The Stories We Tell</h2>
 
              <div className="wrapper">
                 {performanceImages.map((item, index) => (
@@ -75,22 +75,18 @@ const Performance = () => {
                         src={item.src}
                         className={item.id}
                         alt={item.alt || `Performance Image #${index + 1}`}
+                        style={{ borderRadius: '12px' }}
                     />
                 ))}
              </div>
 
             <div className="content">
-                <p>
-                    Run graphics-intensive workflows with a responsiveness that keeps up
-                    with your imagination. The M4 family of chips features a GPU with a
-                    second-generation hardware-accelerated ray tracing engine that renders
-                    images faster, so{" "}
+                <p style={{ fontFamily: "'Alika Misely', cursive" }}>
+                    As Your Premier Digital Marketing Partner, we deliver high ROI SEO services, powerful branding solutions, and content strategy that converts prospects into buyers.
                     <span className="text-white">
-            gaming feels more immersive and realistic than ever.
+           
           </span>{" "}
-                    And Dynamic Caching optimizes fast on-chip memory to dramatically
-                    increase average GPU utilization — driving a huge performance boost
-                    for the most demanding pro apps and games.
+                    
                 </p>
             </div>
         </section>

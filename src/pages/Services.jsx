@@ -49,44 +49,28 @@ const Services = () => {
     return (
         <div className="services-page">
             {/* Hero Section */}
-            <section ref={heroRef} className="services-hero py-20 lg:py-32">
+            <section ref={heroRef} className="services-hero py-12 lg:py-20">
                 <div className="container mx-auto px-5">
-                    <h1 className="animate-in text-4xl lg:text-7xl font-bold text-white mb-6">
+                    <h1 className="animate-in text-4xl lg:text-7xl font-bold text-ash-black mb-6">
                         Bold <span className="text-gradient">SERVICES</span> for
                         <br />
                         Visionary Brands.
                     </h1>
-                    <p className="animate-in text-lg lg:text-xl text-dark-100 max-w-3xl">
+                    <p className="animate-in text-lg lg:text-xl text-dark-100 max-w-3xl" style={{ fontFamily: "'Alika Misely', cursive" }}>
                         Our services are specifically designed to meet your needs.
                     </p>
-                </div>
-
-                {/* Floating Service Images */}
-                <div className="animate-in services-hero-images mt-12 flex gap-4 overflow-x-auto px-5 pb-4">
-                    {services.slice(0, 4).map((service) => (
-                        <div
-                            key={service.id}
-                            className="service-hero-card min-w-[250px] lg:min-w-[300px] rounded-2xl overflow-hidden"
-                        >
-                            <img
-                                src={service.image}
-                                alt={service.title}
-                                className="w-full h-48 object-cover"
-                            />
-                        </div>
-                    ))}
                 </div>
             </section>
 
             {/* Solutions Section */}
             <section ref={servicesRef} className="solutions-section py-20">
                 <div className="container mx-auto px-5">
-                    <h2 className="text-3xl lg:text-5xl font-bold text-white mb-6">
+                    <h2 className="text-3xl lg:text-5xl font-bold text-ash-black mb-6">
                         SOLUTIONS <span className="text-gradient">We Provide</span>
                     </h2>
 
                     <div className="services-list mt-12">
-                        {services.map((service, index) => (
+                        {services.slice(0, 6).map((service, index) => (
                             <Link
                                 key={service.id}
                                 to={`/services/${service.slug}`}
@@ -96,7 +80,7 @@ const Services = () => {
                                     {String(index + 1).padStart(2, "0")}.
                                 </span>
                                 <div className="flex-1">
-                                    <h3 className="text-2xl lg:text-3xl font-bold text-white mb-3 group-hover:text-primary transition-colors">
+                                    <h3 className="text-2xl lg:text-3xl font-bold text-ash-black mb-3 group-hover:text-primary transition-colors">
                                         {service.title}
                                     </h3>
                                     <p className="text-dark-100 max-w-2xl">{service.description}</p>
@@ -127,9 +111,9 @@ const Services = () => {
             </section>
 
             {/* Impact Stats Section */}
-            <section className="impact-section py-20 bg-dark-200/30">
+            <section className="impact-section py-20 bg-slate-100/50">
                 <div className="container mx-auto px-5">
-                    <h2 className="text-3xl lg:text-5xl font-bold text-white mb-6 text-center">
+                    <h2 className="text-3xl lg:text-5xl font-bold text-ash-black mb-6 text-center">
                         We Deliver <span className="text-gradient">IMPACT</span>
                         <br />
                         Let's Create Yours
@@ -143,7 +127,7 @@ const Services = () => {
                             {[...impactStats, ...impactStats].map((stat, index) => (
                                 <div
                                     key={index}
-                                    className="stat-card flex-shrink-0 bg-dark-200/50 rounded-2xl p-8 min-w-[200px] text-center"
+                                    className="stat-card flex-shrink-0 bg-white rounded-2xl p-8 min-w-[200px] text-center shadow-sm"
                                 >
                                     <h3 className="text-4xl lg:text-5xl font-bold text-primary mb-2">
                                         {stat.value}
@@ -159,7 +143,7 @@ const Services = () => {
             {/* Featured Projects */}
             <section className="featured-projects py-20">
                 <div className="container mx-auto px-5">
-                    <h2 className="text-3xl lg:text-5xl font-bold text-white mb-16 text-center">
+                    <h2 className="text-3xl lg:text-5xl font-bold text-ash-black mb-16 text-center">
                         FEATURED <span className="text-gradient">Projects</span>
                     </h2>
 
@@ -170,8 +154,8 @@ const Services = () => {
                                 alt="Featured Project"
                                 className="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-105"
                             />
-                            <div className="p-6 bg-dark-200/50">
-                                <h4 className="text-xl font-bold text-white">Project Name</h4>
+                            <div className="p-6 bg-slate-100">
+                                <h4 className="text-xl font-bold text-ash-black">Project Name</h4>
                                 <p className="text-primary">Visual Identity Design</p>
                             </div>
                         </div>
@@ -181,8 +165,8 @@ const Services = () => {
                                 alt="Featured Project"
                                 className="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-105"
                             />
-                            <div className="p-6 bg-dark-200/50">
-                                <h4 className="text-xl font-bold text-white">Project Name</h4>
+                            <div className="p-6 bg-slate-100">
+                                <h4 className="text-xl font-bold text-ash-black">Project Name</h4>
                                 <p className="text-primary">Logo Redesign</p>
                             </div>
                         </div>
@@ -191,7 +175,7 @@ const Services = () => {
                     <div className="text-center mt-12">
                         <Link
                             to="/works"
-                            className="magnetic-btn inline-block bg-transparent border-2 border-primary text-primary py-4 px-10 rounded-full font-semibold hover:bg-primary hover:text-white transition-all duration-300"
+                            className="magnetic-btn inline-block btn-gradient-outline py-4 px-10 rounded-full font-semibold"
                         >
                             EXPLORE OUR CASE STUDIES
                         </Link>

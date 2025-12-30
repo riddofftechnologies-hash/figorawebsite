@@ -9,16 +9,20 @@ const Hero = () => {
 
     return (
         <section id="hero">
-            <div>
-                <h1>MacBook Pro</h1>
-                <img src="/title.png" alt="MacBook Title" />
+            <div className="hero-media">
+                <video ref={videoRef} src="/videos/hero.mp4" autoPlay muted playsInline loop />
+                <div className="hero-mask">
+                    <img src="/figora.svg" alt="Figora" />
+                </div>
             </div>
 
-            <video ref={videoRef} src="/videos/hero.mp4" autoPlay muted playsInline />
-
-            <button>Buy</button>
-
-            <p>From $1599 or $133/mo for 12 months</p>
+            <div className="hero-bottom-content">
+                <h2 className="hero-tagline text-2xl lg:text-4xl text-ash-black">
+                    Marketing is <span className="text-gradient">Clarity</span> <span className="text-gradient">Conversion</span> <span className="text-gradient">Capital</span>
+                </h2>
+                <button>Begin Your Journey</button>
+                <p>Your Digital Growth Partner</p>
+            </div>
         </section>
     )
 }

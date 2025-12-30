@@ -14,7 +14,7 @@ const services = [
         title: "Branding",
         slug: "branding",
         description: "We craft identities that live across every touchpoint and speak without words. From strategy to design, we build brands that are timeless, intentional, and unmistakably yours.",
-        image: "/services/branding.webp",
+        image: "/10.png",
         subServices: ["Brand Guidelines", "Rebranding", "Website Branding"],
     },
     {
@@ -22,39 +22,39 @@ const services = [
         title: "SEO",
         slug: "search-engine-optimization",
         description: "Climb the ranks and stay there. We mix tech, content and strategy to make sure Google and your customers find YOU first.",
-        image: "/services/seo.webp",
+        image: "/7.png",
         subServices: ["Technical SEO", "Content Strategy", "Local SEO"],
     },
     {
         id: 3,
-        title: "Social Media Management",
-        slug: "social-media-management",
+        title: "Social Media Marketing",
+        slug: "social-media-marketing",
         description: "From scroll-stopping posts to stories that spark conversation, we turn your socials into a community, not just a feed.",
-        image: "/services/social-media.webp",
+        image: "/11.png",
         subServices: ["Content Creation", "Community Management", "Analytics"],
     },
     {
         id: 4,
-        title: "Graphic Design",
-        slug: "graphic-design",
+        title: "Performance Marketing",
+        slug: "performance-marketing",
         description: "Visuals that speak your brand fluently and leave a lasting impression. Designed with intent, not just to make your brand seem pretty.",
-        image: "/services/graphic-design.webp",
+        image: "/12.png",
         subServices: ["Print Design", "Digital Assets", "Marketing Collateral"],
     },
     {
         id: 5,
-        title: "Illustrations & Character Design",
-        slug: "illustrations-character-design",
+        title: "Influencer Marketing",
+        slug: "influencer-marketing",
         description: "Add soul to your brand with hand-crafted illustrations and lovable characters that people remember (and share).",
-        image: "/services/illustrations.webp",
+        image: "/13.png",
         subServices: ["Custom Illustrations", "Mascot Design", "Icon Sets"],
     },
     {
         id: 6,
-        title: "UX/UI Design & Management",
-        slug: "ux-ui-design-management",
+        title: "Production",
+        slug: "production",
         description: "We design intuitive, user-centered interfaces that make every click feel effortless. From layout to flow, every detail is crafted to boost engagement and conversion.",
-        image: "/services/ux-ui.webp",
+        image: "/14.png",
         subServices: ["Web Design", "App Design", "Design Systems"],
     },
     {
@@ -69,30 +69,6 @@ const services = [
 
 // Projects/Works Data
 const projects = [
-    {
-        id: 1,
-        title: "Project Alpha",
-        slug: "project-alpha",
-        subtitle: "Visual Identity Design",
-        category: "branding",
-        image: "/projects/project1.webp",
-    },
-    {
-        id: 2,
-        title: "Project Beta",
-        slug: "project-beta",
-        subtitle: "Logo Redesign",
-        category: "branding",
-        image: "/projects/project2.webp",
-    },
-    {
-        id: 3,
-        title: "Project Gamma",
-        slug: "project-gamma",
-        subtitle: "Social Media Campaign",
-        category: "social-media",
-        image: "/projects/project3.webp",
-    },
     {
         id: 4,
         title: "Project Delta",
@@ -157,12 +133,12 @@ const testimonials = [
 
 // Clients Data
 const clients = [
-    { id: 1, name: "Client 1", logo: "/clients/client1.svg", url: "#" },
-    { id: 2, name: "Client 2", logo: "/clients/client2.svg", url: "#" },
-    { id: 3, name: "Client 3", logo: "/clients/client3.svg", url: "#" },
-    { id: 4, name: "Client 4", logo: "/clients/client4.svg", url: "#" },
-    { id: 5, name: "Client 5", logo: "/clients/client5.svg", url: "#" },
-    { id: 6, name: "Client 6", logo: "/clients/client6.svg", url: "#" },
+    { id: 1, name: "Client 1", logo: "/clients/1.png", url: "#" },
+    { id: 2, name: "Client 2", logo: "/clients/1.png", url: "#" },
+    { id: 3, name: "Client 3", logo: "/clients/1.png", url: "#" },
+    { id: 4, name: "Client 4", logo: "/clients/1.png", url: "#" },
+    { id: 5, name: "Client 5", logo: "/clients/1.png", url: "#" },
+    { id: 6, name: "Client 6", logo: "/clients/1.png", url: "#" },
 ];
 
 // Blog Posts Data
@@ -174,7 +150,7 @@ const blogPosts = [
         excerpt: "Learn the essential strategies to boost your local search rankings and attract more customers in your area.",
         category: "seo",
         categoryLabel: "SEO",
-        image: "/blog/blog1.webp",
+        image: "/7.png",
         date: "Dec 15, 2025",
     },
     {
@@ -184,7 +160,7 @@ const blogPosts = [
         excerpt: "Essential tips and considerations before starting your website design project.",
         category: "ux-ui",
         categoryLabel: "UX/UI",
-        image: "/blog/blog2.webp",
+        image: "/8.png",
         date: "Dec 10, 2025",
     },
     {
@@ -194,9 +170,34 @@ const blogPosts = [
         excerpt: "Master these lighting techniques to elevate your photography and create stunning visuals.",
         category: "photography",
         categoryLabel: "Photography",
-        image: "/blog/blog3.webp",
+        image: "/9.png",
         date: "Dec 5, 2025",
     },
+
+    // Branding Card
+    {
+        id: 4,
+        title: "Branding Essentials for Modern Businesses",
+        slug: "branding-essentials",
+        excerpt: "Explore the key elements of branding that help businesses stand out in today's market.",
+        category: "branding",
+        categoryLabel: "Branding",
+        image: "/10.png",
+        date: "Nov 28, 2025",
+    },
+
+    // Social Media Card
+    {
+        id: 5,
+        title: "Social Media Strategies for 2025",
+        slug: "social-media-strategies-2025",
+        excerpt: "Stay ahead with the latest social media strategies to grow your audience and engagement.",
+        category: "social-media",
+        categoryLabel: "Social Media",
+        image: "/11.png",
+        date: "Nov 15, 2025",
+    },
+    
 ];
 
 const blogCategories = [
@@ -251,10 +252,10 @@ const faqs = [
 
 // Team Members Data
 const teamMembers = [
-    { id: 1, name: "Team Member 1", role: "Creative Director", image: "/team/member1.webp" },
-    { id: 2, name: "Team Member 2", role: "UI/UX Lead", image: "/team/member2.webp" },
-    { id: 3, name: "Team Member 3", role: "SEO Specialist", image: "/team/member3.webp" },
-    { id: 4, name: "Team Member 4", role: "Social Media Manager", image: "/team/member4.webp" },
+    { id: 1, name: "Team Member 1", role: "Creative Director", image: "/cd.png" },
+    { id: 2, name: "Team Member 2", role: "UI/UX Lead", image: "/ui/ux.png" },
+    { id: 3, name: "Team Member 3", role: "SEO Specialist", image: "/seo.png" },
+    { id: 4, name: "Team Member 4", role: "Social Media Manager", image: "/soc.png" },
 ];
 
 // Journey Steps
@@ -263,25 +264,19 @@ const journeySteps = [
         id: 1,
         title: "THE SPARK",
         description: "Figora started with one founder juggling a full-time role and a flood of freelance requests. Somewhere between coffee refills and client calls, it clicked: this cannot just be a side hustle.",
-        image: "/about/journey1.webp",
-    },
-    {
-        id: 2,
-        title: "THE BREAKTHROUGH",
-        description: "Equipped with nothing but creativity and determination, we had everything we needed to build an agency that could compete with the best. No investors. No corporate fluff. Just passion.",
-        image: "/about/journey2.webp",
+        image: "/15.png",
     },
     {
         id: 3,
         title: "THE GROWTH",
         description: "Now we craft brands people remember and engineer strategies that actually deliver. We've helped brands launch, scale, and shine. We treat every project like it matters. Because it does.",
-        image: "/about/journey3.webp",
+        image: "/16.png",
     },
     {
         id: 4,
         title: "THE NOW",
         description: "Big enough to move mountains in our projects. But simple enough to know your brand by name: That's the Figora way.",
-        image: "/about/journey4.webp",
+        image: "/17.png",
     },
 ];
 
@@ -291,19 +286,19 @@ const teamPhilosophy = [
         id: 1,
         title: "PLAN WITH PURPOSE",
         description: "Every step we take is guided by thoughtful strategy and shared insight.",
-        icon: "/icons/purpose.svg",
+        icon: "/log1.png",
     },
     {
         id: 2,
         title: "BUILD AS ONE",
         description: "True impact comes from partnering closely with each other and with our clients.",
-        icon: "/icons/teamwork.svg",
+        icon: "/log2.png",
     },
     {
         id: 3,
-        title: "DARE TO DREAM TOGETHER",
-        description: "Great ideas spark when we challenge the usual and imagine boldly as a team.",
-        icon: "/icons/dream.svg",
+        title: "DARE TO DREAM",
+        description: "We challenge ourselves to think differently, push boundaries, and dream big.",
+        icon: "/log3.png",
     },
 ];
 
@@ -327,13 +322,13 @@ const noChangeParts = [
 ];
 
 const performanceImages = [
-    { id: "p1", src: "/performance1.png" },
-    { id: "p2", src: "/performance2.png" },
-    { id: "p3", src: "/performance3.png" },
-    { id: "p4", src: "/performance4.png" },
-    { id: "p5", src: "/performance5.jpg" },
-    { id: "p6", src: "/performance6.png" },
-    { id: "p7", src: "/performance7.png" },
+    { id: "p1", src: "/21.png" },
+    { id: "p2", src: "/7.png" },
+    { id: "p3", src: "/8.png" },
+    { id: "p4", src: "/9.png" },
+    { id: "p5", src: "/10.png" },
+    { id: "p6", src: "/11.png" },
+    { id: "p7", src: "/12.png" },
 ];
 
 const performanceImgPositions = [
@@ -377,37 +372,37 @@ const performanceImgPositions = [
 const features = [
     {
         id: 1,
-        icon: "/feature-icon1.svg",
-        highlight: "Email AI.",
-        text: "Summarize and draft replies to emails instantly, so you stay on top of your inbox.",
+        icon: "",
+        highlight: "",
+        text: "Search Engine Optimization (SEO): Making your business visible when people search for terms like \"retail store near me.\"",
         styles: "left-5 md:left-20 top-[20%] opacity-0 translate-y-5",
     },
     {
         id: 2,
-        icon: "/feature-icon2.svg",
-        highlight: "Image AI.",
-        text: "Generate or edit images with ease. Just type what you imagine, and let AI bring it to life.",
+        icon: "",
+        highlight: "",
+        text: "Social Media Marketing & Commerce: Using platforms like Instagram, TikTok, and Facebook not just for posts, but for direct shopping.",
         styles: "right-5 md:right-20 top-[30%] opacity-0 translate-y-5",
     },
     {
         id: 3,
-        icon: "/feature-icon3.svg",
-        highlight: "Summarize AI.",
-        text: "Turn long articles, reports, or notes into clear, bite-sized summaries in seconds.",
+        icon: "",
+        highlight: "",
+        text: "Content Marketing: Creating valuable material (videos, blogs, or guides) that solves customer problems",
         styles: "left-5 md:left-20 top-[50%] opacity-0 translate-y-5",
     },
     {
         id: 4,
-        icon: "/feature-icon4.svg",
-        highlight: "AirDrop.",
-        text: "Wirelessly share photos, large files, and more between your iPhone, your Mac, & other devices.",
+        icon: "",
+        highlight: "",
+        text: "Email & SMS Marketing: Direct communication with your loyal customers. Automated \"abandoned cart\" reminders or personalized holiday offers are high-ROI tactics",
         styles: "right-5 md:right-20 top-[70%] opacity-0 translate-y-5",
     },
     {
         id: 5,
-        icon: "/feature-icon5.svg",
-        highlight: "Writing Tool.",
-        text: "Write smarter and faster, whether it’s blogs, essays, or captions, AI helps polish your words.",
+        icon: "",
+        highlight: "",
+        text: "Pay-Per-Click (PPC): Paid ads on Google or Meta that target high-intent shoppers based on their demographics and interests",
         styles: "left-5 md:left-20 top-[90%] opacity-0 translate-y-5",
     },
 ];

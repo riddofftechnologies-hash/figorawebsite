@@ -10,9 +10,9 @@ const NavBar = () => {
 
     return (
         <header>
-            <nav>
+            <nav className="navbar">
                 <Link to="/" className="logo">
-                    <img src="/logo.svg" alt="Figora logo" />
+                    <img src="/logo.svg" alt="Figora" />
                 </Link>
 
                 {/* Desktop Navigation */}
@@ -33,7 +33,7 @@ const NavBar = () => {
                 <div className="nav-cta hidden lg:flex items-center gap-4">
                     <Link
                         to="/contact-us"
-                        className="magnetic-btn bg-primary text-white py-2 px-6 rounded-full font-semibold text-sm hover:bg-white hover:text-black transition-all duration-300"
+                        className="magnetic-btn btn-gradient py-2 px-6 rounded-full font-semibold text-sm"
                     >
                         CONTACT US
                     </Link>
@@ -46,17 +46,17 @@ const NavBar = () => {
                     aria-label="Toggle menu"
                 >
                     <span
-                        className={`w-6 h-0.5 bg-white transition-transform duration-300 ${
+                        className={`w-6 h-0.5 bg-ash-black transition-transform duration-300 ${
                             isMenuOpen ? "rotate-45 translate-y-2" : ""
                         }`}
                     />
                     <span
-                        className={`w-6 h-0.5 bg-white transition-opacity duration-300 ${
+                        className={`w-6 h-0.5 bg-ash-black transition-opacity duration-300 ${
                             isMenuOpen ? "opacity-0" : ""
                         }`}
                     />
                     <span
-                        className={`w-6 h-0.5 bg-white transition-transform duration-300 ${
+                        className={`w-6 h-0.5 bg-ash-black transition-transform duration-300 ${
                             isMenuOpen ? "-rotate-45 -translate-y-2" : ""
                         }`}
                     />
@@ -65,7 +65,7 @@ const NavBar = () => {
 
             {/* Mobile Menu */}
             <div
-                className={`mobile-menu lg:hidden fixed inset-0 top-[7vh] bg-black/95 backdrop-blur-lg z-40 transition-all duration-500 ${
+                className={`mobile-menu lg:hidden fixed inset-0 top-[7vh] bg-white/95 backdrop-blur-lg z-40 transition-all duration-500 ${
                     isMenuOpen
                         ? "opacity-100 pointer-events-auto"
                         : "opacity-0 pointer-events-none"
@@ -80,7 +80,7 @@ const NavBar = () => {
                                 className={`text-2xl font-semibold transition-colors ${
                                     location.pathname === path
                                         ? "text-primary"
-                                        : "text-white hover:text-primary"
+                                        : "text-ash-black hover:text-primary"
                                 }`}
                             >
                                 {label}
@@ -91,7 +91,7 @@ const NavBar = () => {
                         <Link
                             to="/contact-us"
                             onClick={() => setIsMenuOpen(false)}
-                            className="bg-primary text-white py-3 px-8 rounded-full font-semibold hover:bg-white hover:text-black transition-all duration-300"
+                            className="btn-gradient py-3 px-8 rounded-full font-semibold"
                         >
                             CONTACT US
                         </Link>

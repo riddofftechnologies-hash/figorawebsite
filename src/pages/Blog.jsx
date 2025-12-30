@@ -46,9 +46,9 @@ const Blog = () => {
     return (
         <div className="blog-page">
             {/* Hero Section */}
-            <section ref={heroRef} className="blog-hero py-20 lg:py-32">
+            <section ref={heroRef} className="blog-hero py-12 lg:py-20">
                 <div className="container mx-auto px-5">
-                    <h1 className="animate-in text-4xl lg:text-7xl font-bold text-white mb-6">
+                    <h1 className="animate-in text-4xl lg:text-7xl font-bold text-ash-black mb-6">
                         Ideas & <span className="text-gradient">Insights</span>
                     </h1>
                     <p className="animate-in text-lg lg:text-xl text-dark-100 max-w-3xl">
@@ -65,8 +65,8 @@ const Blog = () => {
                             onClick={() => setActiveCategory("all")}
                             className={`category-btn px-6 py-2 rounded-full font-semibold transition-all duration-300 ${
                                 activeCategory === "all"
-                                    ? "bg-white text-black"
-                                    : "bg-transparent border border-dark-100 text-dark-100 hover:border-white hover:text-white"
+                                    ? "bg-primary text-white"
+                                    : "bg-transparent border border-dark-100 text-dark-100 hover:border-primary hover:text-primary"
                             }`}
                         >
                             ALL
@@ -77,8 +77,8 @@ const Blog = () => {
                                 onClick={() => setActiveCategory(category.slug)}
                                 className={`category-btn px-6 py-2 rounded-full font-semibold transition-all duration-300 ${
                                     activeCategory === category.slug
-                                        ? "bg-white text-black"
-                                        : "bg-transparent border border-dark-100 text-dark-100 hover:border-white hover:text-white"
+                                        ? "bg-primary text-white"
+                                        : "bg-transparent border border-dark-100 text-dark-100 hover:border-primary hover:text-primary"
                                 }`}
                             >
                                 {category.name}
@@ -98,12 +98,12 @@ const Blog = () => {
                         {filteredPosts.map((post) => (
                             <Link
                                 key={post.id}
-                                to={`/ideas/${post.slug}`}
-                                className="blog-card group block rounded-2xl overflow-hidden bg-dark-200/30 hover:bg-dark-200/50 transition-all duration-300"
+                                to="/services"
+                                className="blog-card group block rounded-2xl overflow-hidden bg-white hover:bg-slate-50 transition-all duration-300 shadow-sm"
                             >
                                 <div className="image-wrapper overflow-hidden relative">
                                     <img
-                                        src={post.image}
+                                        src={post.image || "/public/default-image.png"}
                                         alt={post.title}
                                         className="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-110"
                                     />
@@ -112,7 +112,7 @@ const Blog = () => {
                                     </span>
                                 </div>
                                 <div className="p-6">
-                                    <h4 className="text-xl font-bold text-white uppercase group-hover:text-primary transition-colors line-clamp-2">
+                                    <h4 className="text-xl font-bold text-ash-black uppercase group-hover:text-primary transition-colors line-clamp-2">
                                         {post.title}
                                     </h4>
                                     <p className="text-dark-100 mt-3 line-clamp-3">

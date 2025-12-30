@@ -61,19 +61,19 @@ const ModelScroll = () => {
 
         // Content & Texture Sync
         timeline
-            .call(() => setTexture('/videos/feature-1.mp4'))
+            .call(() => setTexture('/videos/feature-6.mp4'))
             .to('.box1', { opacity: 1, y: 0, delay: 1 })
 
-            .call(() => setTexture('/videos/feature-2.mp4'))
+            .call(() => setTexture('/videos/feature-7.mp4'))
             .to('.box2', { opacity: 1, y: 0 })
 
-            .call(() => setTexture('/videos/feature-3.mp4'))
+            .call(() => setTexture('/videos/feature-6.mp4'))
             .to('.box3', { opacity: 1, y: 0 })
 
-            .call(() => setTexture('/videos/feature-4.mp4'))
+            .call(() => setTexture('/videos/feature-7.mp4'))
             .to('.box4', { opacity: 1, y: 0})
 
-            .call(() => setTexture('/videos/feature-5.mp4'))
+            .call(() => setTexture('/videos/feature-8.mp4'))
             .to('.box5', { opacity: 1, y: 0 })
     }, []);
 
@@ -89,7 +89,7 @@ const ModelScroll = () => {
 const Features = () => {
     return (
         <section id="features">
-            <h2>See it all in a new light.</h2>
+            <h2 style={{ fontFamily: 'Alika Misely, cursive' }}>Our Achievements.</h2>
 
             <Canvas id="f-canvas" camera={{}}>
                 <StudioLights />
@@ -101,8 +101,8 @@ const Features = () => {
                 {features.map((feature, index) => (
                     <div key={feature.id} className={clsx('box', `box${index + 1}`, feature.styles)}>
                         <img src={feature.icon} alt={feature.highlight} />
-                        <p>
-                            <span className="text-white">{feature.highlight}</span>
+                        <p style={{ fontFamily: 'Alika Misely, cursive' }}>
+                            <span className="text-white" style={{ fontFamily: 'Alika Misely, cursive' }}>{feature.highlight}</span>
                             {feature.text}
                         </p>
                     </div>
