@@ -1,0 +1,1643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Figora — Digital Marketing Agency</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Syne:wght@400;600;700;800&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --purple: #7B2FFF;
+    --purple-mid: #A855F7;
+    --purple-light: #C084FC;
+    --black: #050508;
+    --black-2: #0D0D14;
+    --black-3: #141420;
+    --white: #FFFFFF;
+    --white-dim: rgba(255,255,255,0.6);
+    --white-dimmer: rgba(255,255,255,0.12);
+    --grad-1: linear-gradient(135deg, #7B2FFF 0%, #E040FB 40%, #FF6B6B 70%, #FFD93D 100%);
+    --grad-2: linear-gradient(135deg, #6B21A8 0%, #7B2FFF 40%, #A855F7 100%);
+    --grad-3: linear-gradient(90deg, #7B2FFF, #E040FB, #FF6B6B, #FFD93D, #7B2FFF);
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Manrope', sans-serif;
+    background: var(--black);
+    color: var(--white);
+    overflow-x: hidden;
+    cursor: none;
+  }
+
+  /* CUSTOM CURSOR */
+  .cursor {
+    position: fixed;
+    width: 12px; height: 12px;
+    background: var(--purple-light);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transition: transform 0.1s ease;
+    mix-blend-mode: difference;
+  }
+  .cursor-follower {
+    position: fixed;
+    width: 40px; height: 40px;
+    border: 1px solid rgba(168,85,247,0.5);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9998;
+    transition: all 0.25s ease;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    z-index: 1000;
+    padding: 20px 60px;
+    display: flex; align-items: center; justify-content: space-between;
+    backdrop-filter: blur(20px);
+    background: rgba(5,5,8,0.7);
+    border-bottom: 1px solid var(--white-dimmer);
+    transition: all 0.3s ease;
+  }
+
+  .logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px;
+    letter-spacing: 4px;
+    background: var(--grad-1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .nav-links {
+    display: flex; gap: 40px; list-style: none;
+  }
+  .nav-links a {
+    color: var(--white-dim);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    transition: color 0.3s;
+    font-family: 'Syne', sans-serif;
+  }
+  .nav-links a:hover { color: var(--white); }
+
+  .nav-cta {
+    background: var(--grad-2);
+    color: var(--white) !important;
+    padding: 10px 24px;
+    border-radius: 100px;
+    font-size: 12px !important;
+    letter-spacing: 1px;
+  }
+
+  /* HERO */
+  #hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    position: relative;
+    overflow: hidden;
+    padding: 100px 60px 60px;
+    text-align: center;
+  }
+
+  .hero-bg {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 50% 30%, rgba(123,47,255,0.35) 0%, transparent 70%),
+                radial-gradient(ellipse 60% 40% at 80% 70%, rgba(224,64,251,0.2) 0%, transparent 60%),
+                radial-gradient(ellipse 50% 50% at 20% 80%, rgba(255,107,107,0.1) 0%, transparent 60%);
+    animation: bgPulse 8s ease-in-out infinite alternate;
+  }
+
+  @keyframes bgPulse {
+    0% { opacity: 0.7; transform: scale(1); }
+    100% { opacity: 1; transform: scale(1.05); }
+  }
+
+  /* Noise texture overlay */
+  .hero-bg::after {
+    content: '';
+    position: absolute; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    opacity: 0.4;
+    pointer-events: none;
+  }
+
+  .hero-grid {
+    position: absolute; inset: 0;
+    background-image: linear-gradient(rgba(123,47,255,0.07) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(123,47,255,0.07) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 80%);
+  }
+
+  .hero-content { position: relative; z-index: 2; max-width: 1000px; }
+
+  .hero-eyebrow {
+    font-family: 'Syne', sans-serif;
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--purple-light);
+    margin-bottom: 30px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.3s forwards;
+  }
+
+  .kinetic-line {
+    font-family: 'Bebas Neue', sans-serif;
+    line-height: 0.92;
+    display: block;
+    overflow: hidden;
+  }
+
+  .kinetic-word {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(100%);
+    animation: slideUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .k1 { font-size: clamp(80px, 14vw, 160px); color: var(--white); animation-delay: 0.4s; }
+  .k2 {
+    font-size: clamp(80px, 14vw, 160px);
+    background: var(--grad-1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation-delay: 0.6s;
+    background-size: 200% 100%;
+    animation: slideUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.6s forwards, gradFlow 4s linear 1.3s infinite;
+  }
+  .k3 { font-size: clamp(80px, 14vw, 160px); color: var(--white); animation-delay: 0.8s; }
+  .k4 {
+    font-size: clamp(80px, 14vw, 160px);
+    -webkit-text-stroke: 2px rgba(168,85,247,0.7);
+    color: transparent;
+    animation-delay: 1s;
+  }
+  .k5 { font-size: clamp(80px, 14vw, 160px); color: var(--white); animation-delay: 1.2s; }
+  .k6 {
+    font-size: clamp(80px, 14vw, 160px);
+    background: linear-gradient(135deg, #FFD93D, #FF6B6B, #E040FB);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation-delay: 1.4s;
+  }
+
+  @keyframes slideUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes gradFlow {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
+  }
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-desc {
+    max-width: 620px;
+    margin: 40px auto 0;
+    color: var(--white-dim);
+    font-size: 16px;
+    line-height: 1.8;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 1.6s forwards;
+  }
+
+  .hero-cta-group {
+    display: flex; gap: 16px; justify-content: center; align-items: center;
+    margin-top: 50px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 1.8s forwards;
+  }
+
+  .btn-primary {
+    background: var(--grad-2);
+    color: var(--white);
+    padding: 16px 36px;
+    border-radius: 100px;
+    text-decoration: none;
+    font-family: 'Syne', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 30px rgba(123,47,255,0.4);
+  }
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 50px rgba(123,47,255,0.6);
+  }
+
+  .btn-ghost {
+    color: var(--white-dim);
+    padding: 16px 36px;
+    border-radius: 100px;
+    text-decoration: none;
+    font-family: 'Syne', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    border: 1px solid var(--white-dimmer);
+    transition: all 0.3s ease;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .btn-ghost:hover { color: var(--white); border-color: rgba(255,255,255,0.3); }
+
+  .contact-icon-wrap {
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+    margin-top: 60px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 2s forwards;
+  }
+
+  .contact-pulse {
+    width: 56px; height: 56px;
+    background: var(--grad-2);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 24px;
+    animation: pulseRing 2s ease-in-out infinite;
+    cursor: pointer;
+    transition: transform 0.3s;
+  }
+  .contact-pulse:hover { transform: scale(1.1); }
+
+  @keyframes pulseRing {
+    0% { box-shadow: 0 0 0 0 rgba(123,47,255,0.6); }
+    70% { box-shadow: 0 0 0 20px rgba(123,47,255,0); }
+    100% { box-shadow: 0 0 0 0 rgba(123,47,255,0); }
+  }
+
+  .contact-caption {
+    font-family: 'Syne', sans-serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--purple-light);
+  }
+
+  /* SCROLL TICKER */
+  .ticker-wrap {
+    background: var(--grad-1);
+    padding: 14px 0;
+    overflow: hidden;
+    position: relative;
+  }
+  .ticker {
+    display: flex;
+    width: max-content;
+    animation: ticker 20s linear infinite;
+  }
+  .ticker-item {
+    padding: 0 40px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    letter-spacing: 3px;
+    color: rgba(0,0,0,0.7);
+    white-space: nowrap;
+  }
+  .ticker-dot { padding: 0 10px; color: rgba(0,0,0,0.4); }
+  @keyframes ticker {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* SECTIONS SHARED */
+  section { padding: 120px 60px; position: relative; }
+
+  .section-label {
+    font-family: 'Syne', sans-serif;
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--purple-light);
+    margin-bottom: 16px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .section-label::before {
+    content: '';
+    width: 30px; height: 1px;
+    background: var(--purple-light);
+    display: block;
+  }
+
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(48px, 7vw, 90px);
+    line-height: 0.95;
+    letter-spacing: 1px;
+  }
+
+  /* STATS */
+  #stats {
+    background: var(--black-2);
+    border-top: 1px solid var(--white-dimmer);
+    border-bottom: 1px solid var(--white-dimmer);
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    max-width: 1200px;
+    margin: 60px auto 0;
+  }
+
+  .stat-item {
+    padding: 60px 40px;
+    border: 1px solid var(--white-dimmer);
+    position: relative;
+    overflow: hidden;
+    transition: background 0.3s;
+  }
+  .stat-item:hover {
+    background: rgba(123,47,255,0.08);
+  }
+  .stat-item::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--grad-1);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+  }
+  .stat-item:hover::before { transform: scaleX(1); }
+
+  .stat-number {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(60px, 8vw, 100px);
+    background: var(--grad-1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-family: 'Syne', sans-serif;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--white-dim);
+    margin-top: 8px;
+  }
+
+  .stat-desc {
+    margin-top: 16px;
+    color: rgba(255,255,255,0.35);
+    font-size: 14px;
+    line-height: 1.6;
+    max-width: 280px;
+  }
+
+  .stats-header {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: end;
+  }
+
+  .stats-sub {
+    color: var(--white-dim);
+    font-size: 16px;
+    line-height: 1.8;
+    margin-top: 20px;
+  }
+
+  /* SERVICES */
+  #services { background: var(--black); }
+
+  .services-header {
+    max-width: 1200px; margin: 0 auto 80px;
+  }
+
+  .services-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--white-dimmer);
+    border: 1px solid var(--white-dimmer);
+  }
+
+  .service-card {
+    background: var(--black);
+    padding: 50px 40px;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.4s ease;
+    cursor: default;
+  }
+  .service-card:hover { background: var(--black-3); }
+
+  .service-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--grad-1);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s ease;
+  }
+  .service-card:hover::after { transform: scaleX(1); }
+
+  .service-icon {
+    width: 50px; height: 50px;
+    background: rgba(123,47,255,0.15);
+    border: 1px solid rgba(123,47,255,0.3);
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px;
+    margin-bottom: 28px;
+    transition: all 0.3s;
+  }
+  .service-card:hover .service-icon {
+    background: rgba(123,47,255,0.3);
+    border-color: var(--purple);
+    transform: scale(1.1);
+  }
+
+  .service-name {
+    font-family: 'Syne', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: var(--white);
+  }
+
+  .service-desc {
+    color: rgba(255,255,255,0.45);
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  .service-tag {
+    display: inline-block;
+    margin-top: 24px;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--purple-light);
+    font-family: 'Syne', sans-serif;
+    border: 1px solid rgba(168,85,247,0.3);
+    padding: 5px 12px;
+    border-radius: 100px;
+  }
+
+  /* CLIENTS */
+  #clients { background: var(--black-2); overflow: hidden; }
+
+  .clients-header {
+    max-width: 1200px; margin: 0 auto 80px;
+  }
+
+  .clients-scroll-outer {
+    overflow: hidden;
+    mask-image: linear-gradient(90deg, transparent 0%, black 15%, black 85%, transparent 100%);
+  }
+
+  .clients-scroll {
+    display: flex;
+    width: max-content;
+    animation: scrollRight 18s linear infinite;
+    gap: 0;
+  }
+
+  @keyframes scrollRight {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .client-item {
+    padding: 30px 60px;
+    border-right: 1px solid var(--white-dimmer);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    letter-spacing: 3px;
+    color: rgba(255,255,255,0.2);
+    transition: color 0.3s;
+    white-space: nowrap;
+    cursor: default;
+  }
+  .client-item:hover { color: rgba(255,255,255,0.8); }
+
+  /* TESTIMONIALS */
+  #testimonials { background: var(--black); }
+
+  .testimonials-header { max-width: 1200px; margin: 0 auto 80px; }
+
+  .testimonials-container {
+    max-width: 1200px; margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .testimonial-card {
+    background: var(--black-2);
+    border: 1px solid var(--white-dimmer);
+    border-radius: 16px;
+    padding: 40px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s, border-color 0.3s;
+  }
+  .testimonial-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(168,85,247,0.4);
+  }
+
+  .testimonial-card::before {
+    content: '"';
+    position: absolute;
+    top: -10px; right: 20px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 120px;
+    color: rgba(123,47,255,0.1);
+    line-height: 1;
+  }
+
+  .testimonial-text {
+    font-size: 15px;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .testimonial-author {
+    display: flex; align-items: center; gap: 16px;
+  }
+  .author-avatar {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    background: var(--grad-2);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+  .author-name {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--white);
+  }
+  .author-role {
+    font-size: 12px;
+    color: var(--purple-light);
+    margin-top: 2px;
+  }
+
+  .testimonials-note {
+    text-align: center;
+    margin-top: 50px;
+    color: rgba(255,255,255,0.25);
+    font-size: 13px;
+    font-family: 'Syne', sans-serif;
+    letter-spacing: 1px;
+  }
+
+  /* BLOG */
+  #blog { background: var(--black-2); }
+
+  .blog-header { max-width: 1200px; margin: 0 auto 80px; }
+
+  .blog-grid {
+    max-width: 1200px; margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .blog-card {
+    background: var(--black);
+    border: 1px solid var(--white-dimmer);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: transform 0.3s, border-color 0.3s;
+    cursor: pointer;
+  }
+  .blog-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(168,85,247,0.4);
+  }
+
+  .blog-thumb {
+    height: 200px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  .blog-thumb::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.5) 100%);
+  }
+
+  .blog-cat {
+    position: absolute;
+    bottom: 16px; left: 16px;
+    font-family: 'Syne', sans-serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    background: rgba(123,47,255,0.8);
+    padding: 4px 12px;
+    border-radius: 100px;
+    z-index: 1;
+  }
+
+  .blog-body { padding: 30px; }
+
+  .blog-date {
+    font-size: 11px;
+    color: rgba(255,255,255,0.3);
+    margin-bottom: 10px;
+    font-family: 'Syne', sans-serif;
+    letter-spacing: 1px;
+  }
+
+  .blog-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 12px;
+    color: var(--white);
+  }
+
+  .blog-excerpt {
+    font-size: 13px;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.7;
+  }
+
+  .blog-link {
+    display: inline-flex; align-items: center; gap: 8px;
+    margin-top: 24px;
+    font-family: 'Syne', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--purple-light);
+    text-decoration: none;
+    transition: gap 0.3s;
+  }
+  .blog-card:hover .blog-link { gap: 14px; }
+
+  .blog-note {
+    text-align: center;
+    margin-top: 50px;
+    color: rgba(255,255,255,0.25);
+    font-size: 13px;
+    font-family: 'Syne', sans-serif;
+    letter-spacing: 1px;
+  }
+
+  /* WORKS */
+  #works { background: var(--black); }
+
+  .works-header { max-width: 1200px; margin: 0 auto 80px; }
+
+  .works-grid {
+    max-width: 1200px; margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--white-dimmer);
+  }
+
+  .work-item {
+    background: var(--black);
+    padding: 60px 50px;
+    display: flex; gap: 30px; align-items: flex-start;
+    transition: background 0.3s;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+  .work-item:hover { background: var(--black-3); }
+
+  .work-number {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 60px;
+    -webkit-text-stroke: 1px rgba(168,85,247,0.4);
+    color: transparent;
+    line-height: 1;
+    flex-shrink: 0;
+    transition: -webkit-text-stroke-color 0.3s;
+  }
+  .work-item:hover .work-number { -webkit-text-stroke-color: var(--purple-light); }
+
+  .work-info { flex: 1; }
+
+  .work-name {
+    font-family: 'Syne', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+  .work-type {
+    font-size: 12px;
+    color: var(--purple-light);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-family: 'Syne', sans-serif;
+    margin-bottom: 16px;
+  }
+
+  .work-desc {
+    font-size: 14px;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.7;
+  }
+
+  /* ABOUT */
+  #about { background: var(--black-2); }
+
+  .about-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .about-text { }
+
+  .about-desc {
+    color: var(--white-dim);
+    font-size: 16px;
+    line-height: 2;
+    margin-top: 30px;
+  }
+
+  .about-desc p + p { margin-top: 20px; }
+
+  .crew-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 40px;
+  }
+
+  .crew-card {
+    background: var(--black);
+    border: 1px solid var(--white-dimmer);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+  .crew-card:hover {
+    border-color: rgba(168,85,247,0.5);
+    transform: translateY(-4px);
+  }
+
+  .crew-avatar {
+    width: 70px; height: 70px;
+    border-radius: 50%;
+    margin: 0 auto 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 28px;
+    border: 2px solid rgba(123,47,255,0.4);
+  }
+
+  .crew-name {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--white);
+  }
+
+  .crew-role {
+    font-size: 11px;
+    color: var(--purple-light);
+    margin-top: 4px;
+    letter-spacing: 1px;
+  }
+
+  /* RESUME */
+  #resume { background: var(--black); }
+
+  .resume-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .resume-visual {
+    position: relative;
+    height: 400px;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .resume-card {
+    background: var(--black-2);
+    border: 1px solid rgba(123,47,255,0.3);
+    border-radius: 20px;
+    padding: 50px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+  }
+  .resume-card::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 60% 60% at 50% 0%, rgba(123,47,255,0.2) 0%, transparent 70%);
+  }
+
+  .resume-icon { font-size: 64px; margin-bottom: 20px; }
+
+  .resume-card-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 36px;
+    letter-spacing: 2px;
+    color: var(--white);
+  }
+
+  .resume-btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    margin-top: 24px;
+    background: var(--grad-2);
+    color: var(--white);
+    padding: 14px 30px;
+    border-radius: 100px;
+    font-family: 'Syne', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .resume-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(123,47,255,0.5);
+  }
+
+  /* CONSULTATION / CTA */
+  #consultation {
+    background: var(--black-2);
+    text-align: center;
+  }
+
+  .cta-inner {
+    max-width: 800px; margin: 0 auto;
+  }
+
+  .cta-bg-glow {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 70% 70% at 50% 50%, rgba(123,47,255,0.25) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .cta-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(50px, 7vw, 90px);
+    line-height: 1;
+    letter-spacing: 1px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cta-sub {
+    color: var(--white-dim);
+    font-size: 16px;
+    line-height: 1.8;
+    margin-top: 24px;
+    max-width: 560px;
+    margin-left: auto; margin-right: auto;
+    position: relative; z-index: 1;
+  }
+
+  .cta-btn-group {
+    display: flex; gap: 16px; justify-content: center;
+    margin-top: 50px;
+    position: relative; z-index: 1;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--black);
+    border-top: 1px solid var(--white-dimmer);
+    padding: 60px;
+  }
+
+  .footer-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 60px;
+  }
+
+  .footer-brand .logo { font-size: 36px; display: inline-block; margin-bottom: 20px; }
+
+  .footer-brand p {
+    color: rgba(255,255,255,0.4);
+    font-size: 14px;
+    line-height: 1.7;
+    max-width: 280px;
+  }
+
+  .footer-socials {
+    display: flex; gap: 12px; margin-top: 30px;
+  }
+
+  .social-icon {
+    width: 42px; height: 42px;
+    border: 1px solid var(--white-dimmer);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--white-dim);
+    text-decoration: none;
+    font-size: 18px;
+    transition: all 0.3s;
+  }
+  .social-icon:hover {
+    background: var(--grad-2);
+    border-color: transparent;
+    color: var(--white);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(123,47,255,0.4);
+  }
+
+  .footer-col h4 {
+    font-family: 'Syne', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    color: var(--white);
+  }
+
+  .footer-col ul { list-style: none; }
+  .footer-col ul li { margin-bottom: 12px; }
+  .footer-col ul li a {
+    color: rgba(255,255,255,0.4);
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s;
+  }
+  .footer-col ul li a:hover { color: var(--purple-light); }
+
+  .footer-bottom {
+    max-width: 1200px; margin: 50px auto 0;
+    padding-top: 30px;
+    border-top: 1px solid var(--white-dimmer);
+    display: flex; justify-content: space-between; align-items: center;
+  }
+
+  .footer-bottom p { color: rgba(255,255,255,0.25); font-size: 13px; }
+
+  .grad-bar {
+    height: 3px;
+    background: var(--grad-1);
+    width: 100%;
+  }
+
+  /* Reveal animation on scroll */
+  .reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* GRADIENT HIGHLIGHT TEXT */
+  .grad-text {
+    background: var(--grad-1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Blog thumb colors */
+  .thumb-1 { background: linear-gradient(135deg, #1a0533, #7B2FFF); }
+  .thumb-2 { background: linear-gradient(135deg, #0d1f3c, #1e40af); }
+  .thumb-3 { background: linear-gradient(135deg, #1a0a00, #c2410c); }
+
+  /* Work thumb colors */
+  .work-bg-1 { background: linear-gradient(135deg, rgba(123,47,255,0.15), transparent); }
+
+  /* scroll-top button */
+  .scroll-top {
+    position: fixed; bottom: 30px; right: 30px;
+    width: 46px; height: 46px;
+    background: var(--grad-2);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    z-index: 999;
+    opacity: 0; pointer-events: none;
+    transition: all 0.3s;
+    border: none;
+    color: white;
+    font-size: 18px;
+  }
+  .scroll-top.show { opacity: 1; pointer-events: all; }
+
+  /* Mobile responsive basics */
+  @media (max-width: 900px) {
+    nav { padding: 16px 24px; }
+    .nav-links { display: none; }
+    section { padding: 80px 24px; }
+    .stats-header { grid-template-columns: 1fr; gap: 20px; }
+    .stats-grid { grid-template-columns: 1fr; }
+    .services-grid { grid-template-columns: 1fr; }
+    .about-inner { grid-template-columns: 1fr; gap: 40px; }
+    .resume-inner { grid-template-columns: 1fr; }
+    .footer-inner { grid-template-columns: 1fr 1fr; gap: 40px; }
+    .testimonials-container { grid-template-columns: 1fr; }
+    .blog-grid { grid-template-columns: 1fr; }
+    .works-grid { grid-template-columns: 1fr; }
+    footer { padding: 60px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- CUSTOM CURSOR -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-follower" id="cursorFollower"></div>
+
+<!-- SCROLL TOP -->
+<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">FIGORA</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#works">Works</a></li>
+    <li><a href="#blog">Blog</a></li>
+    <li><a href="#clients">Clients</a></li>
+    <li><a href="#consultation" class="nav-cta">Let's Talk</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+
+  <div class="hero-content">
+    <p class="hero-eyebrow">Premier Digital Marketing Partner — Thrissur, India</p>
+
+    <h1>
+      <span class="kinetic-line">
+        <span class="kinetic-word k1">MARKETING</span>
+      </span>
+      <span class="kinetic-line">
+        <span class="kinetic-word k2">IS</span>
+        &nbsp;
+        <span class="kinetic-word k3">CLARITY</span>
+      </span>
+      <span class="kinetic-line">
+        <span class="kinetic-word k4">CONVERSION</span>
+      </span>
+      <span class="kinetic-line">
+        <span class="kinetic-word k5">&amp;</span>
+        &nbsp;
+        <span class="kinetic-word k6">CAPITAL</span>
+      </span>
+    </h1>
+
+    <p class="hero-desc">
+      As Your Premier Digital Marketing Partner, we deliver high ROI SEO services, powerful branding solutions, and content strategy that converts prospects into buyers.
+    </p>
+
+    <div class="hero-cta-group">
+      <a href="#consultation" class="btn-primary">Get a Free Consultation</a>
+      <a href="#works" class="btn-ghost">
+        <span>View Our Work</span>
+        <span>→</span>
+      </a>
+    </div>
+
+    <div class="contact-icon-wrap">
+      <div class="contact-pulse" onclick="document.getElementById('consultation').scrollIntoView({behavior:'smooth'})">💬</div>
+      <span class="contact-caption">Say Hello!</span>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker">
+    <span class="ticker-item">SEO</span><span class="ticker-dot">✦</span>
+    <span class="ticker-item">BRANDING</span><span class="ticker-dot">✦</span>
+    <span class="ticker-item">SOCIAL MEDIA</span><span class="ticker-dot">✦</span>
+    <span class="ticker-item">PERFORMANCE MARKETING</span><span class="ticker-dot">✦</span>
+    <span class="ticker-item">INFLUENCER MARKETING</span><span class="ticker-dot">✦</span>
+    <span class="ticker-item">PRODUCTION</span><span class="ticker-dot">✦</span>
+    <span class="ticker-item">SEO</span><span class="ticker-dot">✦</span>
+    <span class="ticker-item">BRANDING</span><span class="ticker-dot">✦</span>
+    <span class="ticker-item">SOCIAL MEDIA</span><span class="ticker-dot">✦</span>
+    <span class="ticker-item">PERFORMANCE MARKETING</span><span class="ticker-dot">✦</span>
+    <span class="ticker-item">INFLUENCER MARKETING</span><span class="ticker-dot">✦</span>
+    <span class="ticker-item">PRODUCTION</span><span class="ticker-dot">✦</span>
+  </div>
+</div>
+
+<!-- STATS -->
+<section id="stats">
+  <div class="stats-header reveal">
+    <div>
+      <span class="section-label">Achievement, Documented.</span>
+      <h2 class="section-title">Numbers<br><span class="grad-text">Don't Lie.</span></h2>
+    </div>
+    <div>
+      <p class="stats-sub">We Build Brands That Click. Delivering ROI-driven digital transformation by mastering the convergence of Design Systems, Emerging Tech, and Growth Marketing.</p>
+    </div>
+  </div>
+
+  <div class="stats-grid reveal">
+    <div class="stat-item">
+      <div class="stat-number">30+</div>
+      <div class="stat-label">Clients</div>
+      <div class="stat-desc">Trusted by brands across diverse industries who sought measurable, transformative growth.</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">3+</div>
+      <div class="stat-label">Countries</div>
+      <div class="stat-desc">Our impact transcends borders — driving digital growth internationally.</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">175</div>
+      <div class="stat-label">ROAS</div>
+      <div class="stat-desc">Return On Ad Spend that sets a new benchmark in performance marketing.</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">100%</div>
+      <div class="stat-label">Commitment</div>
+      <div class="stat-desc">Every campaign, every brand, every decision made with complete dedication to your success.</div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="services-header reveal">
+    <span class="section-label">Our Solutions Portfolio</span>
+    <h2 class="section-title">What We<br><span class="grad-text">Do Best.</span></h2>
+  </div>
+
+  <div class="services-grid reveal">
+    <div class="service-card">
+      <div class="service-icon">🏛️</div>
+      <div class="service-name">Branding</div>
+      <div class="service-desc">Brand Architecture. Built to Last. We transcend logos, crafting comprehensive identities that speak volumes without uttering a word. Our process fuses deep strategy with intentional design, guaranteeing a brand that is timeless and uniquely yours.</div>
+      <span class="service-tag">Identity Systems</span>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🔍</div>
+      <div class="service-name">SEO</div>
+      <div class="service-desc">Winning the SERP. Our approach is pure science: marrying Technical SEO with Strategic Content to ensure maximum visibility, authority, and sustained ranking stability.</div>
+      <span class="service-tag">Search Authority</span>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">📱</div>
+      <div class="service-name">Social Media Marketing</div>
+      <div class="service-desc">We build robust, integrated digital presences, crafting scroll-stopping content and platform-specific narratives that ignite conversation and deliver consistent brand visibility.</div>
+      <span class="service-tag">Platform Growth</span>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">📈</div>
+      <div class="service-name">Performance Marketing</div>
+      <div class="service-desc">ROI-Driven Acquisition. We bypass guesswork, leveraging advanced AdTech, real-time Conversion Rate Optimization (CRO), and Data Intelligence to drive measurable sales and guarantee profitable client acquisition.</div>
+      <span class="service-tag">Paid Acquisition</span>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🤝</div>
+      <div class="service-name">Influencer Marketing</div>
+      <div class="service-desc">From Advocacy to Acquisition. We don't just find faces; we build scalable Advocate Programs. Engineering high-impact, authentic UGC campaigns that transform influence into unparalleled market reach.</div>
+      <span class="service-tag">UGC Programs</span>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🎬</div>
+      <div class="service-name">Production</div>
+      <div class="service-desc">Cinematic Storytelling. Optimized for the Feed. From concept to final cut, we master the art of scroll-stopping visuals that resonate instantly. Lights, camera, brand dominance.</div>
+      <span class="service-tag">Visual Content</span>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENTS -->
+<section id="clients" style="padding: 100px 0;">
+  <div class="clients-header reveal" style="padding: 0 60px;">
+    <span class="section-label">Our Clientele</span>
+    <h2 class="section-title">The Stories<br><span class="grad-text">We Tell.</span></h2>
+  </div>
+
+  <div class="clients-scroll-outer" style="margin-top: 60px; border-top: 1px solid rgba(255,255,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.06);">
+    <div class="clients-scroll">
+      <!-- Set 1 -->
+      <div class="client-item">ALRAMS</div>
+      <div class="client-item">HARMAN MOTORS</div>
+      <div class="client-item">RIDDOFF</div>
+      <div class="client-item">WINDOOR</div>
+      <div class="client-item">GLOW AURA</div>
+      <div class="client-item">VB KAYAM</div>
+      <div class="client-item">ENLIGHTEN</div>
+      <div class="client-item">SPRINGS</div>
+      <div class="client-item">LEGAL STANLEY</div>
+      <div class="client-item">EMPIRE MARINE</div>
+      <!-- Set 2 (duplicate for seamless loop) -->
+      <div class="client-item">ALRAMS</div>
+      <div class="client-item">HARMAN MOTORS</div>
+      <div class="client-item">RIDDOFF</div>
+      <div class="client-item">WINDOOR</div>
+      <div class="client-item">GLOW AURA</div>
+      <div class="client-item">VB KAYAM</div>
+      <div class="client-item">ENLIGHTEN</div>
+      <div class="client-item">SPRINGS</div>
+      <div class="client-item">LEGAL STANLEY</div>
+      <div class="client-item">EMPIRE MARINE</div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="testimonials-header reveal">
+    <span class="section-label">What Our Partners Say</span>
+    <h2 class="section-title">Real Words,<br><span class="grad-text">Real Results.</span></h2>
+  </div>
+
+  <div class="testimonials-container reveal" id="testimonialsContainer">
+
+    <div class="testimonial-card">
+      <p class="testimonial-text">"Figora completely transformed our digital presence. The SEO strategy they built for us drove a 3x increase in organic traffic within four months. They don't just deliver — they over-deliver."</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">A</div>
+        <div>
+          <div class="author-name">Arun Mathew</div>
+          <div class="author-role">CEO, Alrams</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial-card">
+      <p class="testimonial-text">"Working with Figora felt like having an in-house team that genuinely cared about our brand. Their branding work gave us an identity we're proud to show the world."</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">R</div>
+        <div>
+          <div class="author-name">Rahul Sharma</div>
+          <div class="author-role">Director, Harman Motors</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial-card">
+      <p class="testimonial-text">"The performance marketing campaigns Figora ran for us achieved a ROAS we hadn't even dreamed of. Data-driven, creative, and completely aligned with our goals."</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">S</div>
+        <div>
+          <div class="author-name">Sneha Nair</div>
+          <div class="author-role">Founder, Glow Aura</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <!-- Add more testimonials in the #testimonialsContainer above by copying the .testimonial-card block -->
+  <p class="testimonials-note">✦ New testimonials can be added to the grid above</p>
+</section>
+
+<!-- BLOG -->
+<section id="blog">
+  <div class="blog-header reveal">
+    <span class="section-label">Insights & Ideas</span>
+    <h2 class="section-title">What We're<br><span class="grad-text">Thinking.</span></h2>
+  </div>
+
+  <div class="blog-grid reveal" id="blogGrid">
+
+    <div class="blog-card">
+      <div class="blog-thumb thumb-1">
+        <span style="position:relative;z-index:1;">🔍</span>
+        <span class="blog-cat">SEO</span>
+      </div>
+      <div class="blog-body">
+        <div class="blog-date">June 12, 2025</div>
+        <h3 class="blog-title">Why Technical SEO Is the Silent Backbone of Every Top-Ranking Site</h3>
+        <p class="blog-excerpt">Beyond keywords and backlinks, it's the architecture of your site that search engines truly reward. Here's what most brands miss.</p>
+        <a href="#" class="blog-link">Read More →</a>
+      </div>
+    </div>
+
+    <div class="blog-card">
+      <div class="blog-thumb thumb-2">
+        <span style="position:relative;z-index:1;">📊</span>
+        <span class="blog-cat">Performance</span>
+      </div>
+      <div class="blog-body">
+        <div class="blog-date">May 28, 2025</div>
+        <h3 class="blog-title">Decoding ROAS: How We Consistently Drive Returns Others Can't</h3>
+        <p class="blog-excerpt">Return on Ad Spend isn't luck — it's a science. We break down the data intelligence framework behind our 175 ROAS benchmark.</p>
+        <a href="#" class="blog-link">Read More →</a>
+      </div>
+    </div>
+
+    <div class="blog-card">
+      <div class="blog-thumb thumb-3">
+        <span style="position:relative;z-index:1;">🎯</span>
+        <span class="blog-cat">Branding</span>
+      </div>
+      <div class="blog-body">
+        <div class="blog-date">May 10, 2025</div>
+        <h3 class="blog-title">Brand Architecture: Building Identities That Outlast Trends</h3>
+        <p class="blog-excerpt">What separates logos from legacies? Deep strategy. Discover how we approach brand-building as a long-term investment.</p>
+        <a href="#" class="blog-link">Read More →</a>
+      </div>
+    </div>
+
+  </div>
+  <!-- Add more blog cards inside #blogGrid -->
+  <p class="blog-note">✦ New blog posts can be added to the grid above</p>
+</section>
+
+<!-- WORKS -->
+<section id="works">
+  <div class="works-header reveal">
+    <span class="section-label">Portfolio</span>
+    <h2 class="section-title">Our Story<br><span class="grad-text">Portfolio.</span></h2>
+  </div>
+
+  <div class="works-grid reveal">
+    <div class="work-item">
+      <div class="work-number">01</div>
+      <div class="work-info">
+        <div class="work-type">Branding + SEO</div>
+        <div class="work-name">Harman Motors — Digital Identity Overhaul</div>
+        <div class="work-desc">Complete brand architecture redesign paired with an aggressive SEO strategy that placed them top-3 across 40+ local search terms.</div>
+      </div>
+    </div>
+    <div class="work-item">
+      <div class="work-number">02</div>
+      <div class="work-info">
+        <div class="work-type">Performance Marketing</div>
+        <div class="work-name">Glow Aura — 175 ROAS Campaign</div>
+        <div class="work-desc">Data-driven paid acquisition strategy that scaled Glow Aura's e-commerce revenue 12x in under 90 days.</div>
+      </div>
+    </div>
+    <div class="work-item">
+      <div class="work-number">03</div>
+      <div class="work-info">
+        <div class="work-type">Social Media + Production</div>
+        <div class="work-name">Empire Marine — Content Dominance</div>
+        <div class="work-desc">Scroll-stopping cinematic content series that grew their social following by 340% and established category authority.</div>
+      </div>
+    </div>
+    <div class="work-item">
+      <div class="work-number">04</div>
+      <div class="work-info">
+        <div class="work-type">Influencer Marketing</div>
+        <div class="work-name">Riddoff — UGC Advocacy Program</div>
+        <div class="work-desc">Built an authentic influencer ecosystem of 80+ advocates, generating millions of organic impressions and measurable sales lift.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-inner">
+    <div class="about-text reveal">
+      <span class="section-label">Why Figora?</span>
+      <h2 class="section-title">Built<br><span class="grad-text">Different.</span></h2>
+      <div class="about-desc">
+        <p>From the visionary heart of Thrissur, we are a crew defined by confident action and unwavering aspiration. We don't just follow the pace of this fast-changing world; we anticipate it.</p>
+        <p>Our strength lies in a unified, innovative perspective — we are dedicated dreamers who see growth not as a goal, but as a reciprocal journey. Our commitment to our team's brilliance is the foundation of the promise we extend to you: a guarantee of transformative impact.</p>
+        <p>We expertly visualize success, understanding that the only measure of our growth is the unfolding excellence of your own brand's story.</p>
+      </div>
+    </div>
+
+    <div class="reveal">
+      <p class="section-label">Our Crew</p>
+      <div class="crew-grid">
+        <div class="crew-card">
+          <div class="crew-avatar" style="background: linear-gradient(135deg,#7B2FFF,#E040FB);">👤</div>
+          <div class="crew-name">Anand R.</div>
+          <div class="crew-role">Founder & Strategist</div>
+        </div>
+        <div class="crew-card">
+          <div class="crew-avatar" style="background: linear-gradient(135deg,#E040FB,#FF6B6B);">👤</div>
+          <div class="crew-name">Sreya M.</div>
+          <div class="crew-role">Creative Director</div>
+        </div>
+        <div class="crew-card">
+          <div class="crew-avatar" style="background: linear-gradient(135deg,#FF6B6B,#FFD93D);">👤</div>
+          <div class="crew-name">Jijo P.</div>
+          <div class="crew-role">SEO Lead</div>
+        </div>
+        <div class="crew-card">
+          <div class="crew-avatar" style="background: linear-gradient(135deg,#FFD93D,#7B2FFF);">👤</div>
+          <div class="crew-name">Athira K.</div>
+          <div class="crew-role">Performance Marketer</div>
+        </div>
+        <div class="crew-card">
+          <div class="crew-avatar" style="background: linear-gradient(135deg,#7B2FFF,#FF6B6B);">👤</div>
+          <div class="crew-name">Rahul V.</div>
+          <div class="crew-role">Content Strategist</div>
+        </div>
+        <div class="crew-card">
+          <div class="crew-avatar" style="background: linear-gradient(135deg,#A855F7,#E040FB);">👤</div>
+          <div class="crew-name">Nisha T.</div>
+          <div class="crew-role">Production Lead</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESUME -->
+<section id="resume">
+  <div class="resume-inner">
+    <div class="reveal">
+      <span class="section-label">Careers</span>
+      <h2 class="section-title">Draft Your<br><span class="grad-text">Next Chapter.</span></h2>
+      <p style="color: var(--white-dim); font-size: 16px; line-height: 1.8; margin-top: 24px; max-width: 420px;">
+        Start your career with Figora. We're always looking for bold thinkers, creative doers, and passionate marketers who want to grow alongside the brands we build.
+      </p>
+      <a href="mailto:careers@figora.in" class="resume-btn" style="margin-top: 36px; display: inline-flex;">
+        📄 Draft Your Resume
+      </a>
+    </div>
+
+    <div class="resume-visual reveal">
+      <div class="resume-card">
+        <div class="resume-icon">📋</div>
+        <div class="resume-card-title">Join The Crew</div>
+        <p style="color: rgba(255,255,255,0.4); font-size: 14px; margin-top: 12px;">Shape your future with a team that's shaping brands.</p>
+        <button class="resume-btn" onclick="window.location.href='mailto:careers@figora.in'">Apply Now →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONSULTATION -->
+<section id="consultation">
+  <div class="cta-bg-glow"></div>
+  <div class="cta-inner reveal">
+    <span class="section-label" style="justify-content: center;">Let's Build Together</span>
+    <h2 class="cta-title">Shouldn't Your Brand's Story Be The One <span class="grad-text">Everyone Remembers?</span></h2>
+    <p class="cta-sub">Memorable stories are expertly crafted, not accidental. Ready to amplify your voice and leave a lasting impression? Connect with us to start.</p>
+    <div class="cta-btn-group">
+      <a href="mailto:hello@figora.in" class="btn-primary">Begin Your Journey</a>
+      <a href="https://wa.me/919876543210" target="_blank" class="btn-ghost">💬 WhatsApp Us</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<div class="grad-bar"></div>
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="logo">FIGORA</div>
+      <p>From the visionary heart of Thrissur — a digital marketing agency built on confident action and transformative results.</p>
+      <div class="footer-socials">
+        <a class="social-icon" href="https://wa.me/919876543210" target="_blank" title="WhatsApp">
+          <!-- WhatsApp SVG -->
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </a>
+        <a class="social-icon" href="https://linkedin.com/company/figora" target="_blank" title="LinkedIn">
+          <!-- LinkedIn SVG -->
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+        <a class="social-icon" href="https://instagram.com/figora" target="_blank" title="Instagram">
+          <!-- Instagram SVG -->
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#services">Branding</a></li>
+        <li><a href="#services">SEO</a></li>
+        <li><a href="#services">Social Media</a></li>
+        <li><a href="#services">Performance</a></li>
+        <li><a href="#services">Influencer</a></li>
+        <li><a href="#services">Production</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#works">Our Work</a></li>
+        <li><a href="#blog">Blog</a></li>
+        <li><a href="#resume">Careers</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="mailto:hello@figora.in">hello@figora.in</a></li>
+        <li><a href="https://wa.me/919876543210">WhatsApp</a></li>
+        <li><a href="#">Thrissur, Kerala, India</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2025 Figora. All rights reserved.</p>
+    <p style="background: var(--grad-1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-family: 'Bebas Neue', sans-serif; letter-spacing: 3px; font-size: 16px;">MARKETING IS CLARITY. CONVERSION. CAPITAL.</p>
+  </div>
+</footer>
+
+<script>
+  // CUSTOM CURSOR
+  const cursor = document.getElementById('cursor');
+  const follower = document.getElementById('cursorFollower');
+  let mx = 0, my = 0, fx = 0, fy = 0;
+
+  document.addEventListener('mousemove', e => {
+    mx = e.clientX; my = e.clientY;
+    cursor.style.left = mx - 6 + 'px';
+    cursor.style.top = my - 6 + 'px';
+  });
+
+  function animateFollower() {
+    fx += (mx - fx - 20) * 0.12;
+    fy += (my - fy - 20) * 0.12;
+    follower.style.left = fx + 'px';
+    follower.style.top = fy + 'px';
+    requestAnimationFrame(animateFollower);
+  }
+  animateFollower();
+
+  // SCROLL REVEAL
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 100);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  reveals.forEach(el => observer.observe(el));
+
+  // SCROLL TOP BUTTON
+  const scrollTopBtn = document.getElementById('scrollTop');
+  window.addEventListener('scroll', () => {
+    scrollTopBtn.classList.toggle('show', window.scrollY > 600);
+  });
+
+  // NAV shrink on scroll
+  const nav = document.querySelector('nav');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 80) {
+      nav.style.padding = '12px 60px';
+    } else {
+      nav.style.padding = '20px 60px';
+    }
+  });
+</script>
+</body>
+</html>
